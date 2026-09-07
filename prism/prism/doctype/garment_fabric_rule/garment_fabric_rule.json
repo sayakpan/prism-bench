@@ -1,0 +1,152 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{garment_style}-{section}",
+ "creation": "2026-08-21 10:00:00.000000",
+ "description": "What fabric a garment section will actually accept. The costing optimiser (prism.api.cost_optimiser) reads this to decide how far a fabric suggestion may go. A row is ignored until Reviewed is ticked -- seeded rows are drafts, not rules.",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "garment_style",
+  "section",
+  "column_break_ident",
+  "is_reviewed",
+  "reviewed_by",
+  "section_break_weight",
+  "min_gsm",
+  "max_gsm",
+  "column_break_weight",
+  "requires_stretch",
+  "allow_family_change",
+  "section_break_families",
+  "allowed_families",
+  "section_break_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "description": "Must match a Trim Costing style_name (\"T-shirt\", \"Polo\", \"Full Zip Hoody\"). Callers speaking another dialect are resolved through prism.api.garment_style_map first.",
+   "fieldname": "garment_style",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Garment Style",
+   "reqd": 1
+  },
+  {
+   "default": "Any",
+   "description": "Canonical section name, or \"Any\" to cover every section of this style. A section-specific row wins over \"Any\".",
+   "fieldname": "section",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Section",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ident",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Until this is ticked the row is ignored entirely and the optimiser falls back to its own conservative defaults. Seeded rows start unticked on purpose: a guessed weight band applied as though it were policy is worse than no rule at all.",
+   "fieldname": "is_reviewed",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Reviewed"
+  },
+  {
+   "depends_on": "is_reviewed",
+   "fieldname": "reviewed_by",
+   "fieldtype": "Data",
+   "label": "Reviewed By"
+  },
+  {
+   "fieldname": "section_break_weight",
+   "fieldtype": "Section Break",
+   "label": "Weight"
+  },
+  {
+   "description": "Lightest fabric this section may be cut in. Leave both at 0 to keep the optimiser's relative band (+/-10% of the current weight).",
+   "fieldname": "min_gsm",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Min GSM"
+  },
+  {
+   "fieldname": "max_gsm",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Max GSM"
+  },
+  {
+   "fieldname": "column_break_weight",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "This section needs elastane. A fabric without it is never suggested, whatever it costs.",
+   "fieldname": "requires_stretch",
+   "fieldtype": "Check",
+   "label": "Requires Stretch"
+  },
+  {
+   "default": "1",
+   "description": "Untick for sections that hold the garment's shape -- collars, cuffs, waistbands. They are ribbed for recovery, and no related knit springs back the same way, so their construction is never substituted.",
+   "fieldname": "allow_family_change",
+   "fieldtype": "Check",
+   "label": "Allow Construction Change"
+  },
+  {
+   "fieldname": "section_break_families",
+   "fieldtype": "Section Break",
+   "label": "Permitted Constructions"
+  },
+  {
+   "description": "Leave empty to permit any construction the substitutability graph already rates as a stand-in. Listing families here narrows it further -- nothing outside the list is suggested.",
+   "fieldname": "allowed_families",
+   "fieldtype": "Table MultiSelect",
+   "label": "Allowed Families",
+   "options": "Garment Fabric Rule Family"
+  },
+  {
+   "fieldname": "section_break_notes",
+   "fieldtype": "Section Break"
+  },
+  {
+   "description": "Why this rule is what it is. Shown to whoever reviews a suggestion it produced.",
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-21 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Garment Fabric Rule",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

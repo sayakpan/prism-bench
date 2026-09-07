@@ -1,0 +1,192 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:fabric_id",
+ "creation": "2026-04-28 14:23:29.925320",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "raw_section",
+  "fabric_id",
+  "fabric_code",
+  "plant",
+  "column_break_xvci",
+  "fabric_width",
+  "base_quantity",
+  "base_uom",
+  "section_break_rblt",
+  "base_code",
+  "base_label",
+  "has_elastane",
+  "structure_code",
+  "structure_label",
+  "structure_ratio",
+  "gsm",
+  "modifiers",
+  "column_break_rxxq",
+  "colour_code",
+  "colour_label",
+  "colour_shade",
+  "blend",
+  "decoded_at",
+  "warnings"
+ ],
+ "fields": [
+  {
+   "fieldname": "fabric_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fabric ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "fabric_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fabric Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "plant",
+   "fieldtype": "Data",
+   "label": "Plant"
+  },
+  {
+   "fieldname": "fabric_width",
+   "fieldtype": "Int",
+   "label": "Fabric Width"
+  },
+  {
+   "fieldname": "base_quantity",
+   "fieldtype": "Int",
+   "label": "Base Quantity"
+  },
+  {
+   "fieldname": "base_uom",
+   "fieldtype": "Data",
+   "label": "Base UoM"
+  },
+  {
+   "fieldname": "column_break_xvci",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "raw_section",
+   "fieldtype": "Section Break",
+   "label": "Raw"
+  },
+  {
+   "fieldname": "section_break_rblt",
+   "fieldtype": "Section Break",
+   "label": "Decoded"
+  },
+  {
+   "fieldname": "base_code",
+   "fieldtype": "Data",
+   "label": "Base Code"
+  },
+  {
+   "fieldname": "base_label",
+   "fieldtype": "Data",
+   "label": "Base Label"
+  },
+  {
+   "fieldname": "structure_code",
+   "fieldtype": "Data",
+   "label": "Structure Code"
+  },
+  {
+   "fieldname": "structure_label",
+   "fieldtype": "Data",
+   "label": "Structure Label"
+  },
+  {
+   "fieldname": "structure_ratio",
+   "fieldtype": "Data",
+   "label": "Structure Ratio"
+  },
+  {
+   "fieldname": "modifiers",
+   "fieldtype": "Small Text",
+   "label": "Modifiers",
+   "max_height": "70px"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_elastane",
+   "fieldtype": "Check",
+   "label": "Has Elastane"
+  },
+  {
+   "fieldname": "gsm",
+   "fieldtype": "Int",
+   "label": "GSM"
+  },
+  {
+   "fieldname": "colour_code",
+   "fieldtype": "Data",
+   "label": "Colour Code"
+  },
+  {
+   "fieldname": "colour_label",
+   "fieldtype": "Data",
+   "label": "Colour Label"
+  },
+  {
+   "fieldname": "colour_shade",
+   "fieldtype": "Data",
+   "label": "Colour Shade"
+  },
+  {
+   "fieldname": "blend",
+   "fieldtype": "Table",
+   "label": "Blend",
+   "options": "Dyed Fabric Blend"
+  },
+  {
+   "fieldname": "warnings",
+   "fieldtype": "Small Text",
+   "label": "Warnings",
+   "max_height": "60px"
+  },
+  {
+   "fieldname": "decoded_at",
+   "fieldtype": "Datetime",
+   "label": "Decoded At"
+  },
+  {
+   "fieldname": "column_break_rxxq",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-28 15:30:39.969209",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Dyed Fabric Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

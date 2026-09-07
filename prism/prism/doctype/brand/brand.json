@@ -1,0 +1,122 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2026-04-21 13:56:33.855263",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "category",
+  "brand",
+  "logo",
+  "website",
+  "estimated_revenue",
+  "all_moodboard_permission",
+  "column_break_qgcb",
+  "primary_competitors",
+  "style_overview",
+  "brand_theme",
+  "brand_preferences"
+ ],
+ "fields": [
+  {
+   "fieldname": "brand",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Brand",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "description": "Attach an image; it is offloaded to S3 on save and this field then holds the servable S3 URL.",
+   "fieldname": "logo",
+   "fieldtype": "Attach Image",
+   "label": "Logo"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website",
+   "options": "URL"
+  },
+  {
+   "fieldname": "estimated_revenue",
+   "fieldtype": "Data",
+   "label": "Estimated Revenue"
+  },
+  {
+   "fieldname": "primary_competitors",
+   "fieldtype": "Small Text",
+   "label": "Primary Competitors",
+   "max_height": "50px"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Category",
+   "options": "Brand Category",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "description": "When enabled, every user of this brand sees all Published moodboards across all brands (not just their own). PSL users filtering by this brand also see all moodboards.",
+   "fieldname": "all_moodboard_permission",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "All Moodboard Permission"
+  },
+  {
+   "fieldname": "column_break_qgcb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "style_overview",
+   "fieldtype": "JSON",
+   "label": "Style Overview",
+   "max_height": "100px"
+  },
+  {
+   "description": "Auto-extracted from the brand website by AI on save, only once while empty. Requires a Website to be set.",
+   "fieldname": "brand_theme",
+   "fieldtype": "JSON",
+   "label": "Brand Theme",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "brand_preferences",
+   "fieldtype": "JSON",
+   "label": "Brand Preferences",
+   "max_height": "100px"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-25 11:53:16.155227",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Brand",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "brand"
+}

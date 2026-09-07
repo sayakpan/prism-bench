@@ -1,0 +1,261 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2026-04-30 16:22:57.993891",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "code",
+  "description",
+  "custom_fabric_name",
+  "ai_description",
+  "batch",
+  "quality",
+  "clean_quality",
+  "quality_sort_order",
+  "column_break_xdrr",
+  "blend",
+  "clean_blend",
+  "gsm",
+  "shade_category",
+  "shade",
+  "color",
+  "finish",
+  "has_image_file",
+  "fiber_section",
+  "fiber_types",
+  "fabric_master_match_section",
+  "closest_fabric_master",
+  "closest_fabric_code",
+  "closest_fabric_desc",
+  "closest_match_score",
+  "column_break_fmmatch",
+  "closest_match_method",
+  "closest_matched_on",
+  "closest_match_reason",
+  "closest_match_alternates",
+  "closest_match_signature",
+  "closest_fabric_cost_per_kg",
+  "closest_fabric_costed_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  },
+  {
+   "fieldname": "quality",
+   "fieldtype": "Data",
+   "label": "Quality"
+  },
+  {
+   "fieldname": "blend",
+   "fieldtype": "Data",
+   "label": "Blend"
+  },
+  {
+   "fieldname": "gsm",
+   "fieldtype": "Int",
+   "label": "GSM"
+  },
+  {
+   "fieldname": "shade_category",
+   "fieldtype": "Data",
+   "label": "Shade Category"
+  },
+  {
+   "fieldname": "finish",
+   "fieldtype": "Data",
+   "label": "Finish"
+  },
+  {
+   "fieldname": "shade",
+   "fieldtype": "Data",
+   "label": "Shade"
+  },
+  {
+   "fieldname": "batch",
+   "fieldtype": "Data",
+   "label": "Batch"
+  },
+  {
+   "fieldname": "custom_fabric_name",
+   "fieldtype": "Data",
+   "label": "Custom Fabric Name"
+  },
+  {
+   "fieldname": "ai_description",
+   "fieldtype": "Data",
+   "label": "AI Description"
+  },
+  {
+   "fieldname": "clean_quality",
+   "fieldtype": "Data",
+   "label": "Clean Quality"
+  },
+  {
+   "fieldname": "clean_blend",
+   "fieldtype": "Data",
+   "label": "Clean Blend"
+  },
+  {
+   "fieldname": "column_break_xdrr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_image_file",
+   "fieldtype": "Check",
+   "label": "Has Image File"
+  },
+  {
+   "fieldname": "fiber_section",
+   "fieldtype": "Section Break",
+   "label": "Fiber Types"
+  },
+  {
+   "description": "Fiber types associated with this fabric. Group rows by Category to render the per-category chip tabs (Cotton, Lyocell, ...).",
+   "fieldname": "fiber_types",
+   "fieldtype": "Table",
+   "label": "Fiber Types",
+   "options": "Dyed Fabric Fiber"
+  },
+  {
+   "default": "999999",
+   "fieldname": "quality_sort_order",
+   "fieldtype": "Int",
+   "label": "Quality Sort Order"
+  },
+  {
+   "description": "Colour of this fabric. Populated separately from the shade code.",
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color"
+  },
+  {
+   "fieldname": "fabric_master_match_section",
+   "fieldtype": "Section Break",
+   "label": "Fabric Master Match"
+  },
+  {
+   "description": "The Fabric Master this fabric most closely corresponds to, matched on Clean Quality, Clean Blend and GSM. Set by \"Find Closest Fabric Master\"; editing it by hand marks the match Manual, and a re-run will then leave it alone.",
+   "fieldname": "closest_fabric_master",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Closest Fabric Master",
+   "options": "Fabric Master"
+  },
+  {
+   "fetch_from": "closest_fabric_master.dyed_fabric_material",
+   "fetch_if_empty": 0,
+   "fieldname": "closest_fabric_code",
+   "fieldtype": "Data",
+   "label": "Closest Fabric Code",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "closest_fabric_master.dyed_fabric_material_desc",
+   "fetch_if_empty": 0,
+   "fieldname": "closest_fabric_desc",
+   "fieldtype": "Data",
+   "label": "Closest Fabric Description",
+   "read_only": 1
+  },
+  {
+   "description": "0-100 fit, from construction (40), composition (40) and GSM (20).",
+   "fieldname": "closest_match_score",
+   "fieldtype": "Float",
+   "label": "Match Score",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_fmmatch",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "closest_match_method",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Match Method",
+   "options": "\nDeterministic\nLLM Assisted\nManual",
+   "read_only": 1
+  },
+  {
+   "fieldname": "closest_matched_on",
+   "fieldtype": "Datetime",
+   "label": "Matched On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "closest_match_reason",
+   "fieldtype": "Small Text",
+   "label": "Match Reason",
+   "read_only": 1
+  },
+  {
+   "description": "Runners-up with their scores, best first.",
+   "fieldname": "closest_match_alternates",
+   "fieldtype": "JSON",
+   "label": "Match Alternates",
+   "read_only": 1
+  },
+  {
+   "description": "Digest of the Clean Quality/Clean Blend/GSM the match was computed from. A re-run recomputes rows whose signature no longer agrees.",
+   "fieldname": "closest_match_signature",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Match Signature",
+   "read_only": 1
+  },
+  {
+   "description": "All-in per-kg cost of the matched Fabric Master, loss % included — the same figure get_garment_cost rolls into a garment. Precomputed, because costing a fabric makes LLM calls the first time; refresh with \"Refresh Fabric Master Cost\".",
+   "fieldname": "closest_fabric_cost_per_kg",
+   "fieldtype": "Currency",
+   "label": "Fabric Master Cost / kg",
+   "read_only": 1
+  },
+  {
+   "fieldname": "closest_fabric_costed_on",
+   "fieldtype": "Datetime",
+   "label": "Costed On",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-25 16:24:58.135519",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Moodboard Dyed Fabric",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

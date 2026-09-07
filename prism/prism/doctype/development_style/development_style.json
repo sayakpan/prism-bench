@@ -1,0 +1,350 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-08-20 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_identification",
+  "naming_series",
+  "collection",
+  "sno",
+  "column_break_ident",
+  "source_ref",
+  "section_brand",
+  "brand",
+  "development_date",
+  "column_break_brand",
+  "month",
+  "section_product",
+  "style_name",
+  "gender",
+  "category",
+  "column_break_product",
+  "brick",
+  "buyer_brick_path",
+  "graphic_type",
+  "section_images",
+  "actual_image",
+  "column_break_images",
+  "artwork_image",
+  "section_fabric",
+  "fabric",
+  "batch_no",
+  "shade",
+  "column_break_fabric",
+  "gsm",
+  "gsm_to_be_verified",
+  "quantity_kg",
+  "section_commercials",
+  "mrp",
+  "column_break_commercials",
+  "fob_factor",
+  "tentative_fob",
+  "section_status",
+  "design_status",
+  "column_break_status",
+  "development_status",
+  "section_remarks",
+  "design_remarks",
+  "psl_remarks",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_identification",
+   "fieldtype": "Section Break",
+   "label": "Identification"
+  },
+  {
+   "default": "DEV-.YY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "DEV-.YY.-.#####"
+  },
+  {
+   "description": "Block title the row came from in the development sheet, e.g. HIT-03 ( CORE PRINTS ). Empty for buyer sheets that are a single flat table, such as SHEIN.",
+   "fieldname": "collection",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Collection",
+   "search_index": 1
+  },
+  {
+   "description": "Serial number as it appeared in the source sheet. Traceability only - it restarts at 1 in every block, so it is never an identifier.",
+   "fieldname": "sno",
+   "fieldtype": "Int",
+   "label": "S.No."
+  },
+  {
+   "fieldname": "column_break_ident",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Origin cell in the source workbook, e.g. SHEIN!A2. Lets a re-import recognise a row it has already loaded.",
+   "fieldname": "source_ref",
+   "fieldtype": "Data",
+   "label": "Source Ref",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_brand",
+   "fieldtype": "Section Break",
+   "label": "Brand & Timing"
+  },
+  {
+   "description": "Deliberately not mandatory: the SHEIN sheet leaves its BRAND column empty on every row because the brand is implied by the tab.",
+   "fieldname": "brand",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Brand",
+   "options": "Brand",
+   "search_index": 1
+  },
+  {
+   "fieldname": "development_date",
+   "fieldtype": "Date",
+   "label": "Development Date"
+  },
+  {
+   "fieldname": "column_break_brand",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Derived from Development Date on save when left blank. Legacy sheets carry only a month name and no year.",
+   "fieldname": "month",
+   "fieldtype": "Select",
+   "label": "Month",
+   "options": "\nJANUARY\nFEBRUARY\nMARCH\nAPRIL\nMAY\nJUNE\nJULY\nAUGUST\nSEPTEMBER\nOCTOBER\nNOVEMBER\nDECEMBER"
+  },
+  {
+   "fieldname": "section_product",
+   "fieldtype": "Section Break",
+   "label": "Product"
+  },
+  {
+   "description": "Deliberately not mandatory: SHEIN fills a style name on only 34 of its 74 rows - the rest are identified by image and brick alone.",
+   "fieldname": "style_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Style Name"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMens\nWomens\nKids\nUnisex"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Category"
+  },
+  {
+   "fieldname": "column_break_product",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Merchandising bucket as used by the buyer, e.g. Knit Tops, Sleepset, Tanks, Bottom.",
+   "fieldname": "brick",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Brick"
+  },
+  {
+   "description": "The buyer's full brick hierarchy when they restate it in their remarks, e.g. Tops > Knit Top > Tops.",
+   "fieldname": "buyer_brick_path",
+   "fieldtype": "Data",
+   "label": "Buyer Brick Path"
+  },
+  {
+   "fieldname": "graphic_type",
+   "fieldtype": "Data",
+   "label": "Graphic Type / Technique"
+  },
+  {
+   "fieldname": "section_images",
+   "fieldtype": "Section Break",
+   "label": "Images"
+  },
+  {
+   "description": "Attach an image; it is offloaded to S3 on save and this field then holds the servable S3 URL.",
+   "fieldname": "actual_image",
+   "fieldtype": "Attach Image",
+   "label": "Actual Image"
+  },
+  {
+   "fieldname": "column_break_images",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Attach an image; it is offloaded to S3 on save and this field then holds the servable S3 URL.",
+   "fieldname": "artwork_image",
+   "fieldtype": "Attach Image",
+   "label": "Artwork / CAD / Flat Sketch"
+  },
+  {
+   "fieldname": "section_fabric",
+   "fieldtype": "Section Break",
+   "label": "Fabric"
+  },
+  {
+   "fieldname": "fabric",
+   "fieldtype": "Data",
+   "label": "Fabric"
+  },
+  {
+   "description": "Data, not Int - batch numbers are mostly numeric but alphanumerics such as 20RR337217 occur.",
+   "fieldname": "batch_no",
+   "fieldtype": "Data",
+   "label": "Batch No."
+  },
+  {
+   "fieldname": "shade",
+   "fieldtype": "Data",
+   "label": "Shade"
+  },
+  {
+   "fieldname": "column_break_fabric",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gsm",
+   "fieldtype": "Float",
+   "label": "GSM",
+   "precision": "2"
+  },
+  {
+   "default": "0",
+   "description": "Set when the source sheet flagged the GSM as unconfirmed, e.g. 300 ( Need to check Gsm ).",
+   "fieldname": "gsm_to_be_verified",
+   "fieldtype": "Check",
+   "label": "GSM To Be Verified"
+  },
+  {
+   "fieldname": "quantity_kg",
+   "fieldtype": "Float",
+   "label": "Quantity (Kg)",
+   "precision": "3"
+  },
+  {
+   "fieldname": "section_commercials",
+   "fieldtype": "Section Break",
+   "label": "Commercials"
+  },
+  {
+   "fieldname": "mrp",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "MRP",
+   "options": "INR"
+  },
+  {
+   "fieldname": "column_break_commercials",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "2.2",
+   "description": "Divisor used to derive Tentative FOB from MRP. The source sheet uses 2.2 on 37 of its 38 priced rows.",
+   "fieldname": "fob_factor",
+   "fieldtype": "Float",
+   "label": "FOB Factor",
+   "precision": "3"
+  },
+  {
+   "description": "Auto-filled as MRP / FOB Factor on save when left blank; set it explicitly to override.",
+   "fieldname": "tentative_fob",
+   "fieldtype": "Currency",
+   "label": "Tentative FOB",
+   "options": "INR"
+  },
+  {
+   "fieldname": "section_status",
+   "fieldtype": "Section Break",
+   "label": "Status"
+  },
+  {
+   "default": "Pending",
+   "description": "From the APPROVED DESIGN column of the legacy sheets. The SHEIN sheet has no equivalent, so its rows stay Pending.",
+   "fieldname": "design_status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Design Status",
+   "options": "Pending\nApproved\nRejected"
+  },
+  {
+   "fieldname": "column_break_status",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Review Pending",
+   "fieldname": "development_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Development Status",
+   "options": "Review Pending\nApproval Pending\nFeedback Awaited\nUnder Costing\nSelected\nNot Selected\nRejected\nPP Approved\nOrder Confirmed",
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_remarks",
+   "fieldtype": "Section Break",
+   "label": "Remarks"
+  },
+  {
+   "description": "Buyer feedback prose - fabric, colour and costing instructions.",
+   "fieldname": "design_remarks",
+   "fieldtype": "Small Text",
+   "label": "Design Remarks"
+  },
+  {
+   "description": "Fabric availability notes from PSL, e.g. Available / Not Available in sheet, Need to check in Open-Hand.",
+   "fieldname": "psl_remarks",
+   "fieldtype": "Small Text",
+   "label": "PSL Remarks"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "image_field": "actual_image",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-20 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Development Style",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "style_name",
+ "track_changes": 1
+}

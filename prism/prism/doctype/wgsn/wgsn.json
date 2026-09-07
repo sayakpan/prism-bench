@@ -1,0 +1,159 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "format:WGSN-{####}",
+ "creation": "2026-04-26 18:19:58.625949",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "report_title",
+  "gender",
+  "category",
+  "author",
+  "published_date",
+  "season",
+  "source",
+  "framework",
+  "column_break_1",
+  "core_theme",
+  "opportunity",
+  "stepic_forecasts",
+  "extraction_date",
+  "custom_field_1",
+  "custom_field_2",
+  "custom_field_3",
+  "section_break_items",
+  "trend_items"
+ ],
+ "fields": [
+  {
+   "fieldname": "report_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Report Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Gender",
+   "options": "\nMen\nWomen\nUnisex"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Category"
+  },
+  {
+   "fieldname": "author",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Author"
+  },
+  {
+   "fieldname": "published_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Published Date"
+  },
+  {
+   "fieldname": "season",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Season"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source"
+  },
+  {
+   "fieldname": "framework",
+   "fieldtype": "Data",
+   "label": "Framework"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "core_theme",
+   "fieldtype": "Small Text",
+   "label": "Core Theme"
+  },
+  {
+   "fieldname": "opportunity",
+   "fieldtype": "Text Editor",
+   "label": "Opportunity"
+  },
+  {
+   "fieldname": "stepic_forecasts",
+   "fieldtype": "Small Text",
+   "label": "STEPIC Forecasts"
+  },
+  {
+   "fieldname": "extraction_date",
+   "fieldtype": "Date",
+   "label": "Extraction Date"
+  },
+  {
+   "fieldname": "custom_field_1",
+   "fieldtype": "Data",
+   "label": "Custom Field 1"
+  },
+  {
+   "fieldname": "custom_field_2",
+   "fieldtype": "Data",
+   "label": "Custom Field 2"
+  },
+  {
+   "fieldname": "custom_field_3",
+   "fieldtype": "Data",
+   "label": "Custom Field 3"
+  },
+  {
+   "fieldname": "section_break_items",
+   "fieldtype": "Section Break",
+   "label": "Trend Items"
+  },
+  {
+   "fieldname": "trend_items",
+   "fieldtype": "Table",
+   "label": "Trend Items",
+   "options": "WGSN Trend Item"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-07-15 13:56:50.241047",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "WGSN",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

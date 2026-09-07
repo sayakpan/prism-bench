@@ -1,0 +1,144 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-05-11 12:25:34.558663",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "tech_pack",
+  "artwork",
+  "order_quantity",
+  "garment_style",
+  "garment_gender",
+  "garment_brand",
+  "fabrics",
+  "costing",
+  "column_break_dmnx",
+  "print_costing",
+  "embroidery_cost",
+  "trim_costing",
+  "market_fob_and_retail",
+  "sam_cost",
+  "final_rollup"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "tech_pack",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Tech Pack",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fabrics",
+   "fieldtype": "JSON",
+   "label": "Fabrics",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "costing",
+   "fieldtype": "JSON",
+   "label": "Costing",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "garment_style",
+   "fieldtype": "Data",
+   "label": "Garment Style"
+  },
+  {
+   "fieldname": "trim_costing",
+   "fieldtype": "JSON",
+   "label": "Trim Costing",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "column_break_dmnx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "print_costing",
+   "fieldtype": "JSON",
+   "label": "Print Costing",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "embroidery_cost",
+   "fieldtype": "JSON",
+   "label": "Embroidery Cost",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "sam_cost",
+   "fieldtype": "JSON",
+   "label": "SAM Cost",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "final_rollup",
+   "fieldtype": "JSON",
+   "label": "Final Rollup",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "market_fob_and_retail",
+   "fieldtype": "JSON",
+   "label": "Market FOB and Retail",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "garment_gender",
+   "fieldtype": "Data",
+   "label": "Garment Gender"
+  },
+  {
+   "fieldname": "garment_brand",
+   "fieldtype": "Data",
+   "label": "Garment Brand"
+  },
+  {
+   "fieldname": "artwork",
+   "fieldtype": "Attach",
+   "label": "Artwork"
+  },
+  {
+   "default": "1500",
+   "fieldname": "order_quantity",
+   "fieldtype": "Int",
+   "label": "Order Quantity"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-11 17:22:27.568143",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Techpack Costing",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

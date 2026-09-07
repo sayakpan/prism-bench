@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-08-13 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "fab_code",
+  "color_name",
+  "pantone",
+  "hex_code",
+  "image",
+  "selected",
+  "source_batch",
+  "render_meta"
+ ],
+ "fields": [
+  {
+   "description": "The Moodboard Surplus Fabric row this recolour belongs to, joined by fab_code rather than child-row name — a name hash changes on every full replace of the recommendations, fab_code does not.",
+   "fieldname": "fab_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fab Code",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "color_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Colour Name"
+  },
+  {
+   "fieldname": "pantone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Pantone"
+  },
+  {
+   "description": "Hex including the leading '#'. Named hex_code, not hex, to stay clear of the builtin.",
+   "fieldname": "hex_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Hex"
+  },
+  {
+   "description": "The recoloured swatch. Written as a base64 data URL by sync_surplus_recolours, staged to /files, then offloaded to S3 by moodboard_media.offload_board on before_save.",
+   "fieldname": "image",
+   "fieldtype": "Data",
+   "label": "Image",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "description": "The recolour the user settled on for this fab code, when they picked one.",
+   "fieldname": "selected",
+   "fieldtype": "Check",
+   "label": "Selected"
+  },
+  {
+   "description": "The stock batch the recolour was derived from, so the original swatch can be re-signed for a before/after view.",
+   "fieldname": "source_batch",
+   "fieldtype": "Data",
+   "label": "Source Batch"
+  },
+  {
+   "description": "Free-form provenance (model, params, timestamp) — what lets a swatch be explained or regenerated later. NOT named `meta`: that is a frappe RESERVED_KEYWORD (BaseDocument.meta is a cached_property), so a column called `meta` is silently dropped by set()/update() and then overwritten with None by init_valid_columns, which clobbers the Meta object and makes every save of the parent board crash in _validate_links. The API still calls this field `meta` on the wire.",
+   "fieldname": "render_meta",
+   "fieldtype": "JSON",
+   "label": "Meta"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-08-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Moodboard Surplus Recolour",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

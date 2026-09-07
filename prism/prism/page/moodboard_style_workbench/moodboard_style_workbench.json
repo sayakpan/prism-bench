@@ -1,0 +1,22 @@
+{
+ "content": null,
+ "creation": "2026-06-25 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2026-06-25 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "moodboard-style-workbench",
+ "owner": "Administrator",
+ "page_name": "moodboard-style-workbench",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "system_page": 0,
+ "title": "Moodboard Style Workbench"
+}

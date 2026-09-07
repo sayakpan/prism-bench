@@ -1,0 +1,145 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "creation": "2026-05-06 12:18:03.073229",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "yarn",
+  "yarn_percent",
+  "labdip_code",
+  "tpi",
+  "twist",
+  "cotton_type",
+  "property_desc",
+  "quality_desc",
+  "ply",
+  "shade_type",
+  "count_unit",
+  "yarn_count",
+  "mixing_colour",
+  "cotton_treatment",
+  "blend",
+  "technology",
+  "technology_desc",
+  "special_property",
+  "fiber_category"
+ ],
+ "fields": [
+  {
+   "fieldname": "yarn",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Yarn"
+  },
+  {
+   "fieldname": "yarn_percent",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Yarn %"
+  },
+  {
+   "fieldname": "labdip_code",
+   "fieldtype": "Data",
+   "label": "Labdip Code"
+  },
+  {
+   "fieldname": "tpi",
+   "fieldtype": "Data",
+   "label": "TPI"
+  },
+  {
+   "fieldname": "twist",
+   "fieldtype": "Data",
+   "label": "Twist"
+  },
+  {
+   "fieldname": "cotton_type",
+   "fieldtype": "Data",
+   "label": "Cotton Type"
+  },
+  {
+   "fieldname": "property_desc",
+   "fieldtype": "Data",
+   "label": "Property Desc"
+  },
+  {
+   "fieldname": "quality_desc",
+   "fieldtype": "Data",
+   "label": "Quality Desc"
+  },
+  {
+   "fieldname": "ply",
+   "fieldtype": "Data",
+   "label": "Ply"
+  },
+  {
+   "fieldname": "shade_type",
+   "fieldtype": "Data",
+   "label": "Shade Type Desc"
+  },
+  {
+   "fieldname": "count_unit",
+   "fieldtype": "Data",
+   "label": "Count Unit Desc"
+  },
+  {
+   "fieldname": "yarn_count",
+   "fieldtype": "Data",
+   "label": "Count"
+  },
+  {
+   "fieldname": "mixing_colour",
+   "fieldtype": "Data",
+   "label": "Mixing Colour Desc"
+  },
+  {
+   "fieldname": "cotton_treatment",
+   "fieldtype": "Data",
+   "label": "Cotton Treatment"
+  },
+  {
+   "fieldname": "blend",
+   "fieldtype": "Data",
+   "label": "Blend"
+  },
+  {
+   "fieldname": "technology",
+   "fieldtype": "Data",
+   "label": "Technology"
+  },
+  {
+   "fieldname": "technology_desc",
+   "fieldtype": "Data",
+   "label": "Technology Desc"
+  },
+  {
+   "fieldname": "special_property",
+   "fieldtype": "Data",
+   "label": "Special Property"
+  },
+  {
+   "fieldname": "fiber_category",
+   "fieldtype": "Link",
+   "label": "Fiber Category",
+   "options": "Fiber Category"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-07-15 11:43:05.158716",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Fabric Master Yarn Detail",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

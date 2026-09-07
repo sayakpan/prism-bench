@@ -1,0 +1,561 @@
+{
+ "actions": [],
+ "autoname": "PRA-.#######",
+ "creation": "2026-06-15 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "moodboard",
+  "idx",
+  "include",
+  "in_moodboard",
+  "decision_section",
+  "decision",
+  "decision_comment",
+  "column_break_decision",
+  "decided_by",
+  "decided_on",
+  "media_section",
+  "image",
+  "image_status",
+  "image_error",
+  "column_break_media_1",
+  "model_3d",
+  "column_break_media_2",
+  "product_video",
+  "renders_section",
+  "renders",
+  "media_section_2",
+  "garment_images",
+  "media_section_3",
+  "garment_file",
+  "column_break_media_3",
+  "bom",
+  "bom_extracted_section",
+  "consumption",
+  "column_break_bom_extracted",
+  "marker_efficiency",
+  "attrs_section",
+  "gender",
+  "product_category",
+  "garment_name",
+  "description",
+  "column_break_attrs",
+  "fabric_quality",
+  "fab_code",
+  "fab_batch",
+  "element_colour",
+  "element_colour_hex",
+  "element_colour_tcx",
+  "secondary_colour",
+  "secondary_colour_hex",
+  "secondary_colour_tcx",
+  "colour_treatment",
+  "print_label",
+  "print_application",
+  "moq",
+  "attrs_extra",
+  "rationale_section",
+  "reason",
+  "fabric_rationale",
+  "column_break_rationale",
+  "design_brief",
+  "signature_details",
+  "cost_section",
+  "cost_status",
+  "cost_order_quantity",
+  "cost_currency",
+  "cost_fx_rate",
+  "cost_breakup_break",
+  "cost_fabric",
+  "cost_trims",
+  "cost_print",
+  "cost_embroidery",
+  "cost_sam",
+  "cost_base",
+  "cost_final",
+  "cost_final_in_currency",
+  "cost_computed_at",
+  "cost_json_section",
+  "cost_inputs",
+  "cost_result"
+ ],
+ "fields": [
+  {
+   "fieldname": "moodboard",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Moodboard",
+   "options": "Moodboard",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "0",
+   "description": "Display order within the board's extracted styles.",
+   "fieldname": "idx",
+   "fieldtype": "Int",
+   "label": "Index"
+  },
+  {
+   "default": "1",
+   "description": "Driven by `decision` — Approved sets it, Rejected and Pending clear it. This is what the downstream steps (costing, ESG, techpack, the published set) filter on, so an approval reaches all of them without any of them knowing about decisions. It cannot BE the decision: a boolean can't tell \"rejected, here's why\" apart from \"nobody has looked at it yet\".",
+   "fieldname": "include",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Include"
+  },
+  {
+   "default": "1",
+   "description": "Whether this style is part of the moodboard the brand is shown. Default on — an approval puts the style in the board, and trimming the set is an explicit deselection, so every board written before this field existed keeps behaving exactly as it did.\n\nOnly an Approved style can carry it: a verdict leaving Approved clears it in the same save (see _reconcile_moodboard_membership), because a rejected style still flagged for the board is a contradiction nobody would go looking for. Moving back into Approved sets it again — default-on is the rule at every approval, not only the first.\n\nNot a second `include`. `include` is the verdict's own derived flag and gates costing, ESG, the techpack and the published set; this one narrows the moodboard alone, inside what `include` already allows.",
+   "fieldname": "in_moodboard",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "In Moodboard"
+  },
+  {
+   "fieldname": "decision_section",
+   "fieldtype": "Section Break",
+   "label": "Decision"
+  },
+  {
+   "default": "Pending",
+   "description": "The merchandiser's verdict on this style. Approved flips `include` on; Rejected and Pending flip it off.",
+   "fieldname": "decision",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Decision",
+   "options": "Pending\nApproved\nRejected"
+  },
+  {
+   "description": "Why the style was rejected. Mandatory when `decision` is Rejected — enforced here in the controller, not only in the dialog.",
+   "fieldname": "decision_comment",
+   "fieldtype": "Small Text",
+   "label": "Decision Comment"
+  },
+  {
+   "fieldname": "column_break_decision",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Stamped automatically whenever `decision` changes.",
+   "fieldname": "decided_by",
+   "fieldtype": "Link",
+   "label": "Decided By",
+   "options": "User"
+  },
+  {
+   "fieldname": "decided_on",
+   "fieldtype": "Datetime",
+   "label": "Decided On"
+  },
+  {
+   "fieldname": "media_section",
+   "fieldtype": "Section Break",
+   "label": "Media"
+  },
+  {
+   "description": "Main image for this garment — the current render. Accepted as a base64 data URL (decoded to a File on the way in) and offloaded to S3 on save.",
+   "fieldname": "image",
+   "fieldtype": "Attach",
+   "label": "Image"
+  },
+  {
+   "default": "pending",
+   "description": "Whether the render has landed. The page saves the styles at `plan` — 3-4 minutes before the first image — so without this a saved row with no image is indistinguishable from a failed render.\n\npending: no picture yet.\nready: the picture matches the current fabric.\nstale: the picture is from a previous fabric and a newer render is outstanding — a stale picture beats an empty frame, so the switch keeps it.\nfailed: the outstanding render failed. The picture, if any, is still the older one.",
+   "fieldname": "image_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Image Status",
+   "options": "pending\nready\nstale\nfailed"
+  },
+  {
+   "description": "The cause of a render failure (product_failed.reason). Deliberately NOT `reason`, which is why the style is in the range — two different things, two columns.",
+   "fieldname": "image_error",
+   "fieldtype": "Small Text",
+   "label": "Image Error"
+  },
+  {
+   "fieldname": "column_break_media_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "3D model for this garment (GLB file).",
+   "fieldname": "model_3d",
+   "fieldtype": "Attach",
+   "label": "3D Model (GLB)"
+  },
+  {
+   "fieldname": "column_break_media_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Product video for this garment (MP4, MOV, or WEBM).",
+   "fieldname": "product_video",
+   "fieldtype": "Attach",
+   "label": "Product Video"
+  },
+  {
+   "collapsible": 1,
+   "description": "Every fabric this style has been rendered against. Switching back to one of them serves its image straight from here — no renderer call, no wait.",
+   "fieldname": "renders_section",
+   "fieldtype": "Section Break",
+   "label": "Renders"
+  },
+  {
+   "fieldname": "renders",
+   "fieldtype": "Table",
+   "label": "Renders",
+   "options": "Moodboard Style Render"
+  },
+  {
+   "fieldname": "media_section_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "description": "Image gallery for this garment (PNG, JPG, etc.). Upload one or more images; they show in the order listed and update live, even on published boards.",
+   "fieldname": "garment_images",
+   "fieldtype": "Table",
+   "label": "Garment Images",
+   "options": "Moodboard Style Garment Image"
+  },
+  {
+   "fieldname": "media_section_3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "description": "Garment file for this garment (e.g. tech pack).",
+   "fieldname": "garment_file",
+   "fieldtype": "Attach",
+   "label": "Garment File"
+  },
+  {
+   "fieldname": "column_break_media_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Bill of Materials for this garment.",
+   "fieldname": "bom",
+   "fieldtype": "Attach",
+   "label": "BOM"
+  },
+  {
+   "description": "Fields auto-extracted from the uploaded BOM spreadsheet.",
+   "fieldname": "bom_extracted_section",
+   "fieldtype": "Section Break",
+   "label": "BOM Extracted Fields"
+  },
+  {
+   "description": "Auto-filled from the uploaded BOM: (Roll Width × Avg. Fabric Length × GSM) ÷ area factor, using 10000 when the fabric lengths are in cm or 1550 when in inches (unit read from the cells). GSM is read from the first fabric row's Name (e.g. \"GSM-165\"). Left blank if the unit can't be determined. Editable; recomputed whenever a new BOM is uploaded.",
+   "fieldname": "consumption",
+   "fieldtype": "Float",
+   "label": "Consumption",
+   "precision": "3"
+  },
+  {
+   "fieldname": "column_break_bom_extracted",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Auto-filled from the uploaded BOM (the first fabric row's Efficiency). Editable; recomputed whenever a new BOM is uploaded.",
+   "fieldname": "marker_efficiency",
+   "fieldtype": "Float",
+   "label": "Marker Efficiency",
+   "precision": "2"
+  },
+  {
+   "fieldname": "attrs_section",
+   "fieldtype": "Section Break",
+   "label": "Attributes"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Data",
+   "label": "Gender"
+  },
+  {
+   "fieldname": "product_category",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Product Category"
+  },
+  {
+   "fieldname": "garment_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Garment Name"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_attrs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "The fabric quality NAME (the generator's `fabricName`). The lot identity is `fab_code`.",
+   "fieldname": "fabric_quality",
+   "fieldtype": "Data",
+   "label": "Fabric Quality"
+  },
+  {
+   "description": "The surplus lot this style is cut from (the generator's `fabricCode`). `fabric_quality` is only the name — this is the identity: the join to the board's surplus selection, and half the render cache key. Both are queries, which is why it is a column and not a key in attrs_extra.",
+   "fieldname": "fab_code",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Fab Code",
+   "search_index": 1
+  },
+  {
+   "description": "The dye lot the style is cut in — the other half of the board's (fab_code, batch) identity (see Moodboard Surplus Fabric). Optional: empty means the style names a quality but no particular lot, which is every row written before batches were tracked, and the client falls back to matching on fab_code alone. Part of the render cache key when set, because two batches of one code are two colourways and need two renders.",
+   "fieldname": "fab_batch",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Fab Batch",
+   "search_index": 1
+  },
+  {
+   "fieldname": "element_colour",
+   "fieldtype": "Data",
+   "label": "Element Colour"
+  },
+  {
+   "fieldname": "element_colour_hex",
+   "fieldtype": "Data",
+   "label": "Element Colour Hex"
+  },
+  {
+   "fieldname": "element_colour_tcx",
+   "fieldtype": "Data",
+   "label": "Element Colour TCX"
+  },
+  {
+   "description": "Mirrors the element_colour trio. Often empty.",
+   "fieldname": "secondary_colour",
+   "fieldtype": "Data",
+   "label": "Secondary Colour"
+  },
+  {
+   "fieldname": "secondary_colour_hex",
+   "fieldtype": "Data",
+   "label": "Secondary Colour Hex"
+  },
+  {
+   "fieldname": "secondary_colour_tcx",
+   "fieldtype": "Data",
+   "label": "Secondary Colour TCX"
+  },
+  {
+   "fieldname": "colour_treatment",
+   "fieldtype": "Data",
+   "label": "Colour Treatment"
+  },
+  {
+   "description": "Empty means solid. Shown on the card.",
+   "fieldname": "print_label",
+   "fieldtype": "Data",
+   "label": "Print Label"
+  },
+  {
+   "fieldname": "print_application",
+   "fieldtype": "Data",
+   "label": "Print Application"
+  },
+  {
+   "default": "1500",
+   "fieldname": "moq",
+   "fieldtype": "Int",
+   "label": "MOQ"
+  },
+  {
+   "description": "Any future classifier fields not promoted to columns.",
+   "fieldname": "attrs_extra",
+   "fieldtype": "JSON",
+   "label": "Attrs Extra"
+  },
+  {
+   "collapsible": 1,
+   "description": "The generator's argument for this style — what the drawer renders and what a merchandiser rules on.",
+   "fieldname": "rationale_section",
+   "fieldtype": "Section Break",
+   "label": "Design Rationale"
+  },
+  {
+   "description": "Why this piece is in the range. Deliberately NOT `image_error`, which is why a render failed.",
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason"
+  },
+  {
+   "description": "Why THIS quality. Kept separate from `reason` — folded together, the fabric argument stands in for the selection argument.",
+   "fieldname": "fabric_rationale",
+   "fieldtype": "Small Text",
+   "label": "Fabric Rationale"
+  },
+  {
+   "fieldname": "column_break_rationale",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "The instruction the renderer was given.",
+   "fieldname": "design_brief",
+   "fieldtype": "Text",
+   "label": "Design Brief"
+  },
+  {
+   "description": "Array of strings, rendered as a list.",
+   "fieldname": "signature_details",
+   "fieldtype": "JSON",
+   "label": "Signature Details"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "cost_section",
+   "fieldtype": "Section Break",
+   "label": "Cost (embedded)"
+  },
+  {
+   "default": "Not Costed",
+   "fieldname": "cost_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Cost Status",
+   "options": "Not Costed\nComputed"
+  },
+  {
+   "description": "The order quantity the cost was computed against.",
+   "fieldname": "cost_order_quantity",
+   "fieldtype": "Int",
+   "label": "Cost Order Quantity"
+  },
+  {
+   "fieldname": "cost_currency",
+   "fieldtype": "Select",
+   "label": "Cost Currency",
+   "options": "INR\nUSD\nEUR"
+  },
+  {
+   "description": "INR per 1 unit of the display currency.",
+   "fieldname": "cost_fx_rate",
+   "fieldtype": "Float",
+   "label": "Cost FX Rate",
+   "precision": "6"
+  },
+  {
+   "fieldname": "cost_breakup_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "INR",
+   "fieldname": "cost_fabric",
+   "fieldtype": "Float",
+   "label": "Cost Fabric",
+   "precision": "2"
+  },
+  {
+   "description": "INR",
+   "fieldname": "cost_trims",
+   "fieldtype": "Float",
+   "label": "Cost Trims",
+   "precision": "2"
+  },
+  {
+   "description": "INR",
+   "fieldname": "cost_print",
+   "fieldtype": "Float",
+   "label": "Cost Print",
+   "precision": "2"
+  },
+  {
+   "description": "INR",
+   "fieldname": "cost_embroidery",
+   "fieldtype": "Float",
+   "label": "Cost Embroidery",
+   "precision": "2"
+  },
+  {
+   "description": "INR",
+   "fieldname": "cost_sam",
+   "fieldtype": "Float",
+   "label": "Cost SAM",
+   "precision": "2"
+  },
+  {
+   "description": "INR",
+   "fieldname": "cost_base",
+   "fieldtype": "Float",
+   "label": "Cost Base",
+   "precision": "2"
+  },
+  {
+   "description": "INR \u2014 what the quote engine reads.",
+   "fieldname": "cost_final",
+   "fieldtype": "Float",
+   "label": "Cost Final",
+   "precision": "2"
+  },
+  {
+   "description": "Final cost in the display currency.",
+   "fieldname": "cost_final_in_currency",
+   "fieldtype": "Float",
+   "label": "Cost Final (in currency)",
+   "precision": "2"
+  },
+  {
+   "fieldname": "cost_computed_at",
+   "fieldtype": "Datetime",
+   "label": "Cost Computed At"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "cost_json_section",
+   "fieldtype": "Section Break",
+   "label": "Cost Snapshot (JSON)"
+  },
+  {
+   "description": "Full inputs \u2014 re-hydrates the cost editor.",
+   "fieldname": "cost_inputs",
+   "fieldtype": "JSON",
+   "label": "Cost Inputs"
+  },
+  {
+   "description": "Full server breakdown snapshot (tabs + audit).",
+   "fieldname": "cost_result",
+   "fieldtype": "JSON",
+   "label": "Cost Result"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-24 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Moodboard Style",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

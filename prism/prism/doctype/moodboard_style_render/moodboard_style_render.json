@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "creation": "2026-08-14 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "render_key",
+  "fab_code",
+  "fab_batch",
+  "fabric_quality",
+  "element_colour_tcx",
+  "print_label",
+  "recolour",
+  "image",
+  "status",
+  "error",
+  "is_current"
+ ],
+ "fields": [
+  {
+   "description": "hash(fab_code, element_colour_tcx, print_label, recolour[, fab_batch]) — the cache identity of this render. Keyed on the fab code alone, changing colourway and changing back would serve an image of the previous colour, so the dye lot, the colourway, the print and the recoloured swatch are all part of the key. The batch is appended only when set, so a render cached before batches existed keeps the key it was written under. Built by build_render_key(); never set by hand. One row per key: a retry overwrites its own failed row.",
+   "fieldname": "render_key",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Render Key",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "description": "The surplus lot this render was made from — the join to the board's surplus selection.",
+   "fieldname": "fab_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fab Code",
+   "search_index": 1
+  },
+  {
+   "description": "The dye lot this render was made from, when one was recorded — the other half of the board's (fab_code, batch) identity. Empty on a render cached before batches were tracked, and on a style still pointed at a fab code alone.",
+   "fieldname": "fab_batch",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fab Batch",
+   "search_index": 1
+  },
+  {
+   "description": "The fabric quality name at render time (the lot's label, not its identity).",
+   "fieldname": "fabric_quality",
+   "fieldtype": "Data",
+   "label": "Fabric Quality"
+  },
+  {
+   "fieldname": "element_colour_tcx",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Element Colour TCX"
+  },
+  {
+   "description": "Empty means solid.",
+   "fieldname": "print_label",
+   "fieldtype": "Data",
+   "label": "Print Label"
+  },
+  {
+   "description": "The Moodboard Surplus Recolour applied to this render, when one was — the same lot in two colourways is two different renders.",
+   "fieldname": "recolour",
+   "fieldtype": "Data",
+   "label": "Recolour"
+  },
+  {
+   "description": "The rendered image. Accepted as a base64 data URL, staged to /files, then offloaded to S3 on the parent's before_save.",
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "default": "ready",
+   "description": "A failed row is kept on purpose — it is why a retry is offered rather than the same render silently repeated.",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "ready\nfailed"
+  },
+  {
+   "description": "Why the render failed (product_failed.reason). Empty on a ready row.",
+   "fieldname": "error",
+   "fieldtype": "Small Text",
+   "label": "Error"
+  },
+  {
+   "default": "0",
+   "description": "The render currently shown as the style's image. At most one row per style.",
+   "fieldname": "is_current",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Current"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-08-14 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Moodboard Style Render",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-04-09 18:48:26.287055",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "buyer",
+  "template",
+  "published_layout_json",
+  "draft_layout_json",
+  "status",
+  "last_published_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "published_layout_json",
+   "fieldtype": "JSON",
+   "label": "Published Layout Json"
+  },
+  {
+   "fieldname": "draft_layout_json",
+   "fieldtype": "JSON",
+   "label": "Draft Layout Json"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nPublished",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_published_at",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Last Published At"
+  },
+  {
+   "fieldname": "buyer",
+   "fieldtype": "Link",
+   "label": "Buyer",
+   "options": "Buyer",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "template",
+   "fieldtype": "Link",
+   "label": "Template",
+   "options": "Moodboard Template"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-10 11:29:29.268432",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Buyer Moodboard",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

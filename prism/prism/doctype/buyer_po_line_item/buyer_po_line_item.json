@@ -1,0 +1,270 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-07-23 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "article_code",
+  "item_description",
+  "colour_code",
+  "colour_name",
+  "size_section",
+  "size",
+  "size_range",
+  "column_break_size",
+  "size_alt",
+  "qty_section",
+  "quantity",
+  "uom",
+  "column_break_qty",
+  "unit_price",
+  "line_amount",
+  "currency",
+  "delivery_section",
+  "delivery_date",
+  "ean_barcode",
+  "column_break_delivery",
+  "hs_code",
+  "fabric_composition",
+  "pack_section",
+  "assortment_code",
+  "pack_qty",
+  "column_break_pack",
+  "no_of_packs",
+  "domestic_section",
+  "mrp",
+  "tax_rate",
+  "column_break_domestic",
+  "tax_amount",
+  "remarks_section",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "description": "Buyer's code at the level the line is priced.",
+   "fieldname": "article_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Article / SKU Code"
+  },
+  {
+   "description": "Description as printed for this line.",
+   "fieldname": "item_description",
+   "fieldtype": "Small Text",
+   "label": "Item Description"
+  },
+  {
+   "description": "Buyer's colour code where distinct from the name.",
+   "fieldname": "colour_code",
+   "fieldtype": "Data",
+   "label": "Colour Code"
+  },
+  {
+   "columns": 2,
+   "description": "Colour as printed. Maps to Pantone / PSL colour master downstream.",
+   "fieldname": "colour_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Colour Name"
+  },
+  {
+   "fieldname": "size_section",
+   "fieldtype": "Section Break",
+   "label": "Size"
+  },
+  {
+   "columns": 1,
+   "description": "Size label for this line.",
+   "fieldname": "size",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Size"
+  },
+  {
+   "description": "Used where the PO gives only a span and no size split.",
+   "fieldname": "size_range",
+   "fieldtype": "Data",
+   "label": "Size Range"
+  },
+  {
+   "fieldname": "column_break_size",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Equivalent size on the buyer's alternate scale.",
+   "fieldname": "size_alt",
+   "fieldtype": "Data",
+   "label": "Alternate Size (EU / IT)"
+  },
+  {
+   "fieldname": "qty_section",
+   "fieldtype": "Section Break",
+   "label": "Quantity & Price"
+  },
+  {
+   "columns": 1,
+   "description": "Ordered quantity. Excludes 'Total Quantity' footer rows.",
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity",
+   "precision": "2"
+  },
+  {
+   "description": "Unit of measure for the line. Free text — falls back to the header UOM when blank.",
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "label": "UOM"
+  },
+  {
+   "fieldname": "column_break_qty",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "description": "Line price. Falls back to the header base price when the override is blank.",
+   "fieldname": "unit_price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Unit Price",
+   "options": "currency"
+  },
+  {
+   "columns": 2,
+   "description": "Extended value. Recomputed on save as quantity x (unit price + tax amount); mismatches against the printed value are logged to Extraction Notes.",
+   "fieldname": "line_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Line Amount",
+   "options": "currency"
+  },
+  {
+   "description": "Mirrors the parent order currency so Currency fields render with the right symbol. Set automatically.",
+   "fieldname": "currency",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "delivery_section",
+   "fieldtype": "Section Break",
+   "label": "Delivery & Codes"
+  },
+  {
+   "description": "Line-level date. Carries the drop split where an order ships in phases.",
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "label": "Line Delivery Date"
+  },
+  {
+   "description": "Retail barcode where printed.",
+   "fieldname": "ean_barcode",
+   "fieldtype": "Data",
+   "label": "EAN / Barcode"
+  },
+  {
+   "fieldname": "column_break_delivery",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Line-level tariff code where it varies by size or style.",
+   "fieldname": "hs_code",
+   "fieldtype": "Data",
+   "label": "HS / HTS Code"
+  },
+  {
+   "description": "Colour-specific composition where the PO overrides the header default.",
+   "fieldname": "fabric_composition",
+   "fieldtype": "Small Text",
+   "label": "Composition (line override)"
+  },
+  {
+   "fieldname": "pack_section",
+   "fieldtype": "Section Break",
+   "label": "Packing"
+  },
+  {
+   "description": "Pack or ratio code for assorted orders.",
+   "fieldname": "assortment_code",
+   "fieldtype": "Data",
+   "label": "Assortment / Pack Code"
+  },
+  {
+   "description": "Units per pack or carton.",
+   "fieldname": "pack_qty",
+   "fieldtype": "Float",
+   "label": "Pack / Case Lot Qty",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_pack",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Number of packs or cartons on the line.",
+   "fieldname": "no_of_packs",
+   "fieldtype": "Float",
+   "label": "No. of Packs / Cartons",
+   "precision": "2"
+  },
+  {
+   "description": "Domestic (India) orders only.",
+   "fieldname": "domestic_section",
+   "fieldtype": "Section Break",
+   "label": "Domestic"
+  },
+  {
+   "description": "Printed retail price.",
+   "fieldname": "mrp",
+   "fieldtype": "Currency",
+   "label": "MRP / Retail Price",
+   "options": "currency"
+  },
+  {
+   "description": "GST / IGST rate. Stored the Frappe way — 5% is 5, not 0.05.",
+   "fieldname": "tax_rate",
+   "fieldtype": "Percent",
+   "label": "Tax Rate %"
+  },
+  {
+   "fieldname": "column_break_domestic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Per-unit tax uplift where the PO prints a landed price (landed price less net price).",
+   "fieldname": "tax_amount",
+   "fieldtype": "Currency",
+   "label": "Tax Amount (per unit)",
+   "options": "currency"
+  },
+  {
+   "fieldname": "remarks_section",
+   "fieldtype": "Section Break",
+   "label": "Remarks"
+  },
+  {
+   "description": "Raw string or anything the parser could not map on this line.",
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-07-23 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Buyer PO Line Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

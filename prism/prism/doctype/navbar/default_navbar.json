@@ -1,0 +1,227 @@
+[
+  {
+    "label": "Women",
+    "href": "/styles?gender=Women",
+    "children": [
+      {
+        "label": "Tops",
+        "href": "/styles?gender=Women&category=Tops",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_0f81b055.png",
+        "children": [
+          { "label": "All Tops ", "href": "/styles?gender=Women&category=Tops" },
+          { "label": "Dresses", "href": "/styles?gender=Women&category=Tops&style=Dresses" },
+          { "label": "Henley", "href": "/styles?gender=Women&category=Tops&style=Henley" },
+          { "label": "Hoody", "href": "/styles?gender=Women&category=Tops&style=Hoody" },
+          { "label": "Jacket", "href": "/styles?gender=Women&category=Tops&style=Jacket" },
+          { "label": "Polos", "href": "/styles?gender=Women&category=Tops&style=Polos" },
+          { "label": "Pullover", "href": "/styles?gender=Women&category=Tops&style=Pullover" },
+          { "label": "Sweatshirt", "href": "/styles?gender=Women&category=Tops&style=Sweatshirt" },
+          { "label": "T-Shirt", "href": "/styles?gender=Women&category=Tops&style=T-Shirt" },
+          { "label": "Top", "href": "/styles?gender=Women&category=Tops&style=Top" }
+        ]
+      },
+      {
+        "label": "Bottoms",
+        "href": "/styles?gender=Women&category=Bottoms",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_aff5913a.png",
+        "children": [
+          { "label": "All Bottoms", "href": "/styles?gender=Women&category=Bottoms" },
+          { "label": "Jogger", "href": "/styles?gender=Women&category=Bottoms&style=Jogger" },
+          { "label": "Leggings", "href": "/styles?gender=Women&category=Bottoms&style=Leggings" },
+          { "label": "Pants", "href": "/styles?gender=Women&category=Bottoms&style=Pants" },
+          { "label": "Shorts", "href": "/styles?gender=Women&category=Bottoms&style=Shorts" },
+          { "label": "Skirt", "href": "/styles?gender=Women&category=Bottoms&style=Skirt" }
+        ]
+      },
+      {
+        "label": "Intimates",
+        "href": "/styles?gender=Women&category=Intimates",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_93428a8d.png",
+        "children": [
+          { "label": "All Underwear", "href": "/styles?gender=Women&category=Intimates" },
+          { "label": "Bikini", "href": "/styles?gender=Women&category=Intimates&style=Bikini" },
+          { "label": "Bras", "href": "/styles?gender=Women&category=Intimates&style=Bras" },
+          { "label": "Brief", "href": "/styles?gender=Women&category=Intimates&style=Brief" },
+          { "label": "Camisole", "href": "/styles?gender=Women&category=Intimates&style=Camisole" },
+          { "label": "Tank", "href": "/styles?gender=Women&category=Intimates&style=Tank" },
+          { "label": "Thongs", "href": "/styles?gender=Women&category=Intimates&style=Thongs" }
+        ]
+      },
+      {
+        "label": "Sets",
+        "href": "/styles?gender=Women&category=Sets",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_58078c91.png",
+        "children": [
+          { "label": "All Sets", "href": "/styles?gender=Women&category=Sets" },
+          { "label": "Lounge sets", "href": "/styles?gender=Women&category=Sets&style=Lounge+sets" },
+          { "label": "Sleepwear ", "href": "/styles?gender=Women&category=Sets&style=Sleepwear" }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Men",
+    "href": "/styles?gender=Men",
+    "children": [
+      {
+        "label": "Tops",
+        "href": "/styles?gender=Men&category=Tops",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_66b0e53b.png",
+        "children": [
+          { "label": "All Tops ", "href": "/styles?gender=Men&category=Tops" },
+          { "label": " Henley", "href": "/styles?gender=Men&category=Tops&style=Henley" },
+          { "label": "Hoody", "href": "/styles?gender=Men&category=Tops&style=Hoody" },
+          { "label": "Jacket", "href": "/styles?gender=Men&category=Tops&style=Jacket" },
+          { "label": "Polos", "href": "/styles?gender=Men&category=Tops&style=Polos" },
+          { "label": "Pullover", "href": "/styles?gender=Men&category=Tops&style=Pullover" },
+          { "label": "Sweatshirt", "href": "/styles?gender=Men&category=Tops&style=Sweatshirt" },
+          { "label": "T-Shirt", "href": "/styles?gender=Men&category=Tops&style=T-Shirt" }
+        ]
+      },
+      {
+        "label": "Bottoms",
+        "href": "/styles?gender=Men&category=Bottoms",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_8ce88278.png",
+        "children": [
+          { "label": "All Bottoms", "href": "/styles?gender=Men&category=Bottoms" },
+          { "label": "Jogger", "href": "/styles?gender=Men&category=Bottoms&style=Jogger" },
+          { "label": "Pants", "href": "/styles?gender=Men&category=Bottoms&style=Pants" },
+          { "label": "Shorts", "href": "/styles?gender=Men&category=Bottoms&style=Shorts" }
+        ]
+      },
+      {
+        "label": "Intimates",
+        "href": "/styles?gender=Men&category=Intimates",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_8f0a5dd1.png",
+        "children": [
+          { "label": "All Underwear ", "href": "/styles?gender=Men&category=Intimates" },
+          { "label": "Boxer", "href": "/styles?gender=Men&category=Intimates&style=Boxer" },
+          { "label": "Brief", "href": "/styles?gender=Men&category=Intimates&style=Brief" },
+          { "label": "Trunk", "href": "/styles?gender=Men&category=Intimates&style=Trunk" }
+        ]
+      },
+      {
+        "label": "Sets",
+        "href": "/styles?gender=Men&category=Sets",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_55e9563b.png",
+        "children": [
+          { "label": "All Sets", "href": "/styles?gender=Men&category=Sets" },
+          { "label": "Lounge sets", "href": "/styles?gender=Men&category=Sets&style=Lounge+sets" },
+          { "label": "Sleepwear", "href": "/styles?gender=Men&category=Sets&style=Sleepwear" }
+        ]
+      }
+    ]
+  },
+  {
+    "label": " Boys",
+    "href": "/styles?gender=Boys",
+    "children": [
+      {
+        "label": "Tops",
+        "href": "/styles?gender=Boys&category=Tops",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_237a8747.png",
+        "children": [
+          { "label": "All Tops", "href": "/styles?gender=Boys&category=Tops" },
+          { "label": "Henley", "href": "/styles?gender=Boys&category=Tops&style=Henley" },
+          { "label": "Hoody", "href": "/styles?gender=Boys&category=Tops&style=Hoody" },
+          { "label": "Jacket", "href": "/styles?gender=Boys&category=Tops&style=Jacket" },
+          { "label": "Polos", "href": "/styles?gender=Boys&category=Tops&style=Polos" },
+          { "label": "Pullover", "href": "/styles?gender=Boys&category=Tops&style=Pullover" },
+          { "label": "Sweatshirt", "href": "/styles?gender=Boys&category=Tops&style=Sweatshirt" },
+          { "label": "T-Shirt", "href": "/styles?gender=Boys&category=Tops&style=T-Shirt" }
+        ]
+      },
+      {
+        "label": "Bottoms",
+        "href": "/styles?gender=Boys&category=Bottoms",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_d490c415.png",
+        "children": [
+          { "label": "All Bottoms", "href": "/styles?gender=Boys&category=Bottoms" },
+          { "label": "Jogger", "href": "/styles?gender=Boys&category=Bottoms&style=Jogger" },
+          { "label": "Pants", "href": "/styles?gender=Boys&category=Bottoms&style=Pants" },
+          { "label": "Shorts", "href": "/styles?gender=Boys&category=Bottoms&style=Shorts" }
+        ]
+      },
+      {
+        "label": "Intimates",
+        "href": "/styles?gender=Boys&category=Intimates",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_b7216ebd.png",
+        "children": [
+          { "label": "All Underwear", "href": "/styles?gender=Boys&category=Intimates" },
+          { "label": "Boxer", "href": "/styles?gender=Boys&category=Intimates&style=Boxer" },
+          { "label": "Brief", "href": "/styles?gender=Boys&category=Intimates&style=Brief" },
+          { "label": "Trunk", "href": "/styles?gender=Boys&category=Intimates&style=Trunk" }
+        ]
+      },
+      {
+        "label": "Sets",
+        "href": "/styles?gender=Boys&category=Sets",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_8de375c5.png",
+        "children": [
+          { "label": "All Sets", "href": "/styles?gender=Boys&category=Sets" },
+          { "label": "Lounge sets", "href": "/styles?gender=Boys&category=Sets&style=Lounge+sets" },
+          { "label": "Sleepwear", "href": "/styles?gender=Boys&category=Sets&style=Sleepwear" }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Girls",
+    "href": "/styles?gender=Girls",
+    "children": [
+      {
+        "label": "Tops",
+        "href": "/styles?gender=Girls&category=Tops",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_c32bd4d8.webp",
+        "children": [
+          { "label": "All Tops", "href": "/styles?gender=Girls&category=Tops" },
+          { "label": "Dresses", "href": "/styles?gender=Girls&category=Tops&style=Dresses" },
+          { "label": "Henley", "href": "/styles?gender=Girls&category=Tops&style=Henley" },
+          { "label": " Hoody", "href": "/styles?gender=Girls&category=Tops&style=Hoody" },
+          { "label": "Jacket", "href": "/styles?gender=Girls&category=Tops&style=Jacket" },
+          { "label": "Polos", "href": "/styles?gender=Girls&category=Tops&style=Polos" },
+          { "label": "Pullover", "href": "/styles?gender=Girls&category=Tops&style=Pullover" },
+          { "label": "Sweatshirt", "href": "/styles?gender=Girls&category=Tops&style=Sweatshirt" },
+          { "label": "T-Shirt", "href": "/styles?gender=Girls&category=Tops&style=T-Shirt" },
+          { "label": "Top", "href": "/styles?gender=Girls&category=Tops&style=Top" }
+        ]
+      },
+      {
+        "label": "Bottoms",
+        "href": "/styles?gender=Girls&category=Bottoms",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_53fed818.webp",
+        "children": [
+          { "label": "All Bottoms", "href": "/styles?gender=Girls&category=Bottoms" },
+          { "label": "Jogger", "href": "/styles?gender=Girls&category=Bottoms&style=Jogger" },
+          { "label": "Leggings", "href": "/styles?gender=Girls&category=Bottoms&style=Leggings" },
+          { "label": "Pants", "href": "/styles?gender=Girls&category=Bottoms&style=Pants" },
+          { "label": "Shorts", "href": "/styles?gender=Girls&category=Bottoms&style=Shorts" },
+          { "label": "Skirts", "href": "/styles?gender=Girls&category=Bottoms&style=Skirts" }
+        ]
+      },
+      {
+        "label": "Intimates",
+        "href": "/styles?gender=Girls&category=Intimates",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_d23fb06a.webp",
+        "children": [
+          { "label": "All Underwear", "href": "/styles?gender=Girls&category=Intimates" },
+          { "label": "Bikini", "href": "/styles?gender=Girls&category=Intimates&style=Bikini" },
+          { "label": "Bras", "href": "/styles?gender=Girls&category=Intimates&style=Bras" },
+          { "label": "Brief", "href": "/styles?gender=Girls&category=Intimates&style=Brief" },
+          { "label": "Camisole", "href": "/styles?gender=Girls&category=Intimates&style=Camisole" },
+          { "label": "Tank", "href": "/styles?gender=Girls&category=Intimates&style=Tank" }
+        ]
+      },
+      {
+        "label": "Sets",
+        "href": "/styles?gender=Girls&category=Sets",
+        "image": "https://prismadminstg.pratibhasyntex.com/files/doc_dd47cca2.webp",
+        "children": [
+          { "label": "All Sets", "href": "/styles?gender=Girls&category=Sets" },
+          { "label": "Lounge sets", "href": "/styles?gender=Girls&category=Sets&style=Lounge+sets" },
+          { "label": "Sleepwear", "href": "/styles?gender=Girls&category=Sets&style=Sleepwear" }
+        ]
+      }
+    ]
+  }
+]

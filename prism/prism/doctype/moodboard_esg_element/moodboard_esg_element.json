@@ -1,0 +1,153 @@
+{
+ "actions": [],
+ "creation": "2026-07-06 00:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_name",
+  "consumption",
+  "marker_efficiency",
+  "fabric_type",
+  "old_fabric_type",
+  "fabric_blend",
+  "shade_category",
+  "gsm",
+  "yarn_process_type",
+  "yarn_specs",
+  "dyeing_type",
+  "transport_mode",
+  "zero_tolerance_fail",
+  "finishing_mech_chem",
+  "finishing_aop_digital",
+  "finishing_process",
+  "yarn_composition",
+  "element_rating"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "section_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Section"
+  },
+  {
+   "description": "Sourced from the BOM (kg per piece).",
+   "fieldname": "consumption",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Consumption (kg/pc)",
+   "precision": "3"
+  },
+  {
+   "description": "Sourced from the BOM.",
+   "fieldname": "marker_efficiency",
+   "fieldtype": "Percent",
+   "label": "Marker Efficiency (%)"
+  },
+  {
+   "fieldname": "fabric_type",
+   "fieldtype": "Data",
+   "label": "Fabric Type"
+  },
+  {
+   "description": "Prior construction, from Fabric Master's old_fabric_construction.",
+   "fieldname": "old_fabric_type",
+   "fieldtype": "Data",
+   "label": "Old Fabric Type"
+  },
+  {
+   "columns": 2,
+   "description": "Free-text blend string, e.g. \"100% ORGANIC COTTON\".",
+   "fieldname": "fabric_blend",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fabric Blend"
+  },
+  {
+   "fieldname": "shade_category",
+   "fieldtype": "Data",
+   "label": "Shade Category"
+  },
+  {
+   "columns": 1,
+   "fieldname": "gsm",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "GSM"
+  },
+  {
+   "fieldname": "yarn_process_type",
+   "fieldtype": "Data",
+   "label": "Yarn Process Type"
+  },
+  {
+   "fieldname": "yarn_specs",
+   "fieldtype": "Data",
+   "label": "Yarn Specs"
+  },
+  {
+   "default": "SOFT",
+   "fieldname": "dyeing_type",
+   "fieldtype": "Data",
+   "label": "Dyeing Type"
+  },
+  {
+   "default": "Sea",
+   "fieldname": "transport_mode",
+   "fieldtype": "Select",
+   "label": "Transport Mode",
+   "options": "Air\nRoad\nRail\nSea"
+  },
+  {
+   "default": "0",
+   "fieldname": "zero_tolerance_fail",
+   "fieldtype": "Check",
+   "label": "Zero-Tolerance Fail?"
+  },
+  {
+   "fieldname": "finishing_mech_chem",
+   "fieldtype": "Data",
+   "label": "Finishing – Mechanical & Chemical"
+  },
+  {
+   "fieldname": "finishing_aop_digital",
+   "fieldtype": "Select",
+   "label": "Finishing – AOP / Digital",
+   "options": "\nYES\nDigital Print\nNO"
+  },
+  {
+   "fieldname": "finishing_process",
+   "fieldtype": "Select",
+   "label": "Finishing – Process",
+   "options": "\nStentor 1\nStentor 2\nDryer"
+  },
+  {
+   "description": "Array of {name, pct}, e.g. [{\"name\": \"Organic Cotton\", \"pct\": 95}, {\"name\": \"Elastane\", \"pct\": 5}].",
+   "fieldname": "yarn_composition",
+   "fieldtype": "JSON",
+   "label": "Yarn / Fibre Composition"
+  },
+  {
+   "description": "Computed snapshot (optional).",
+   "fieldname": "element_rating",
+   "fieldtype": "Float",
+   "label": "Element Rating",
+   "precision": "2"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-07-06 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Moodboard ESG Element",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

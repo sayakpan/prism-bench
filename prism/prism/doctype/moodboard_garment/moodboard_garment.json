@@ -1,0 +1,127 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-06-16 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "garment",
+  "selected",
+  "source_id",
+  "gsr_no",
+  "garment_name",
+  "gender",
+  "product_category",
+  "fabric_quality",
+  "fabric_blend",
+  "element_colour",
+  "finished_gsm",
+  "image_urls",
+  "relevancy_score",
+  "cleaned_front_image",
+  "cleaned_back_image"
+ ],
+ "fields": [
+  {
+   "description": "Resolved master row (Sample Request). Full attributes are also stored inline below so nothing from get_matching_garments is lost.",
+   "fieldname": "garment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Garment",
+   "options": "Sample Request"
+  },
+  {
+   "default": "0",
+   "description": "All realign candidates are stored; the user's picks are marked selected.",
+   "fieldname": "selected",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Selected"
+  },
+  {
+   "fieldname": "source_id",
+   "fieldtype": "Data",
+   "label": "Source Id"
+  },
+  {
+   "fieldname": "gsr_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "GSR No"
+  },
+  {
+   "description": "From the AI suggestion (not on the master).",
+   "fieldname": "garment_name",
+   "fieldtype": "Data",
+   "label": "Garment Name"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Data",
+   "label": "Gender"
+  },
+  {
+   "fieldname": "product_category",
+   "fieldtype": "Data",
+   "label": "Product Category"
+  },
+  {
+   "fieldname": "fabric_quality",
+   "fieldtype": "Data",
+   "label": "Fabric Quality"
+  },
+  {
+   "fieldname": "fabric_blend",
+   "fieldtype": "Data",
+   "label": "Fabric Blend"
+  },
+  {
+   "fieldname": "element_colour",
+   "fieldtype": "Data",
+   "label": "Element Colour"
+  },
+  {
+   "fieldname": "finished_gsm",
+   "fieldtype": "Data",
+   "label": "Finished GSM"
+  },
+  {
+   "description": "Original master shots {front, back} (host-resolved URLs). JSON.",
+   "fieldname": "image_urls",
+   "fieldtype": "JSON",
+   "label": "Image URLs"
+  },
+  {
+   "fieldname": "relevancy_score",
+   "fieldtype": "Float",
+   "label": "Relevancy Score",
+   "precision": "2"
+  },
+  {
+   "description": "AI-cleaned front product shot generated during alignment (/files/... path). Board-specific.",
+   "fieldname": "cleaned_front_image",
+   "fieldtype": "Attach",
+   "label": "Cleaned Front Image"
+  },
+  {
+   "description": "AI-cleaned back product shot generated during alignment (/files/... path).",
+   "fieldname": "cleaned_back_image",
+   "fieldtype": "Attach",
+   "label": "Cleaned Back Image"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-06-16 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Moodboard Garment",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

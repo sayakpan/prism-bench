@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-07-16 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "block_id",
+  "block_type",
+  "block_path",
+  "change_kind",
+  "field",
+  "old_value",
+  "new_value"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "description": "Stable id of the affected block, e.g. NAVBAR-1780572988940-372.",
+   "fieldname": "block_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Block ID"
+  },
+  {
+   "columns": 1,
+   "fieldname": "block_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Block Type"
+  },
+  {
+   "description": "Human breadcrumb to the block, e.g. NAV › Man › Linen-Blend Tee.",
+   "fieldname": "block_path",
+   "fieldtype": "Data",
+   "label": "Block Path"
+  },
+  {
+   "columns": 1,
+   "fieldname": "change_kind",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Change Kind",
+   "options": "Added\nRemoved\nMoved\nEdited"
+  },
+  {
+   "columns": 2,
+   "description": "Dotted path of the changed field within the block, e.g. props.ctaLabel.",
+   "fieldname": "field",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Field"
+  },
+  {
+   "fieldname": "old_value",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Old Value"
+  },
+  {
+   "fieldname": "new_value",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "New Value"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-07-16 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Page Builder Change",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

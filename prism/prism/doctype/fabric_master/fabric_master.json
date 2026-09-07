@@ -1,0 +1,339 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2026-04-29 16:17:13.940871",
+ "description": "Fabric Master DocType",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "dyed_fabric_info_section",
+  "dyed_fabric_material",
+  "dyed_fabric_material_desc",
+  "fabric",
+  "finish_gsm",
+  "mechanical_chemical_finish",
+  "aop",
+  "aop_design",
+  "aop_code",
+  "loss_percent",
+  "costing_knitting_code",
+  "costing_mc_processes",
+  "column_break_pmuw",
+  "old_fabric_construction",
+  "cpl",
+  "cpl_gsm",
+  "cpl_width",
+  "finish_width",
+  "gmt_washing",
+  "shade_cat",
+  "pantone_code",
+  "fabric_labdip_request",
+  "labdip_code",
+  "pantone_shade_name",
+  "fab_dyeing_type",
+  "customer_fabric_shade",
+  "grey_fabric_section",
+  "grey_fabric_material",
+  "grey_fabric_material_desc",
+  "yarn_count",
+  "blend",
+  "yarn_shade_code",
+  "spandex",
+  "column_break_ptic",
+  "k_batch",
+  "dia",
+  "stitch_length",
+  "gauge",
+  "yarn_mixing_color",
+  "slit_line",
+  "yarn_details_section",
+  "yarn_details",
+  "column_break_bivz",
+  "remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "dyed_fabric_info_section",
+   "fieldtype": "Section Break",
+   "label": "Dyed Fabric Information"
+  },
+  {
+   "bold": 1,
+   "fieldname": "dyed_fabric_material",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Dyed Fabric Material",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "dyed_fabric_material_desc",
+   "fieldtype": "Small Text",
+   "label": "Dyed Fabric Material Desc",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "fabric",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Fabric (Construction)",
+   "search_index": 1
+  },
+  {
+   "fieldname": "old_fabric_construction",
+   "fieldtype": "Data",
+   "label": "Old Fabric (Construction)"
+  },
+  {
+   "fieldname": "cpl",
+   "fieldtype": "Data",
+   "label": "CPL"
+  },
+  {
+   "fieldname": "cpl_gsm",
+   "fieldtype": "Int",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "CPL GSM",
+   "search_index": 1
+  },
+  {
+   "fieldname": "cpl_width",
+   "fieldtype": "Data",
+   "label": "CPL Width"
+  },
+  {
+   "fieldname": "gmt_washing",
+   "fieldtype": "Data",
+   "label": "GMT Washing"
+  },
+  {
+   "fieldname": "finish_gsm",
+   "fieldtype": "Int",
+   "label": "Finish GSM"
+  },
+  {
+   "fieldname": "finish_width",
+   "fieldtype": "Data",
+   "label": "Finish Width"
+  },
+  {
+   "fieldname": "fabric_labdip_request",
+   "fieldtype": "Data",
+   "label": "Fabric Labdip Request"
+  },
+  {
+   "fieldname": "shade_cat",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Shade Category",
+   "search_index": 1
+  },
+  {
+   "fieldname": "labdip_code",
+   "fieldtype": "Data",
+   "label": "Labdip Code"
+  },
+  {
+   "fieldname": "pantone_code",
+   "fieldtype": "Data",
+   "label": "Pantone Code"
+  },
+  {
+   "fieldname": "aop",
+   "fieldtype": "Data",
+   "label": "AOP"
+  },
+  {
+   "fieldname": "aop_design",
+   "fieldtype": "Data",
+   "label": "AOP Design"
+  },
+  {
+   "fieldname": "aop_code",
+   "fieldtype": "Data",
+   "label": "AOP Code"
+  },
+  {
+   "fieldname": "pantone_shade_name",
+   "fieldtype": "Data",
+   "label": "Pantone Shade Name"
+  },
+  {
+   "fieldname": "customer_fabric_shade",
+   "fieldtype": "Data",
+   "label": "Customer Fabric Shade"
+  },
+  {
+   "fieldname": "mechanical_chemical_finish",
+   "fieldtype": "Data",
+   "label": "Mechanical/Chemical Finish"
+  },
+  {
+   "fieldname": "fab_dyeing_type",
+   "fieldtype": "Data",
+   "label": "Fab Dyeing Type"
+  },
+  {
+   "fieldname": "loss_percent",
+   "fieldtype": "Float",
+   "label": "Loss %"
+  },
+  {
+   "fieldname": "grey_fabric_section",
+   "fieldtype": "Section Break",
+   "label": "Grey Fabric Information"
+  },
+  {
+   "fieldname": "grey_fabric_material",
+   "fieldtype": "Data",
+   "label": "Grey Fabric Material"
+  },
+  {
+   "fieldname": "grey_fabric_material_desc",
+   "fieldtype": "Small Text",
+   "label": "Grey Fabric Material Desc",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "blend",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_standard_filter": 1,
+   "label": "Blend",
+   "search_index": 1
+  },
+  {
+   "fieldname": "slit_line",
+   "fieldtype": "Data",
+   "label": "Slit Line"
+  },
+  {
+   "fieldname": "stitch_length",
+   "fieldtype": "Data",
+   "label": "Stitch Length"
+  },
+  {
+   "fieldname": "k_batch",
+   "fieldtype": "Data",
+   "label": "K-Batch"
+  },
+  {
+   "fieldname": "dia",
+   "fieldtype": "Data",
+   "label": "Dia"
+  },
+  {
+   "fieldname": "gauge",
+   "fieldtype": "Data",
+   "label": "Gauge"
+  },
+  {
+   "fieldname": "spandex",
+   "fieldtype": "Data",
+   "label": "SPANDEX"
+  },
+  {
+   "fieldname": "yarn_count",
+   "fieldtype": "Data",
+   "label": "Yarn Count"
+  },
+  {
+   "fieldname": "yarn_mixing_color",
+   "fieldtype": "Data",
+   "label": "Yarn Mixing Color"
+  },
+  {
+   "fieldname": "yarn_shade_code",
+   "fieldtype": "Data",
+   "label": "Yarn Shade Code"
+  },
+  {
+   "fieldname": "yarn_details_section",
+   "fieldtype": "Section Break",
+   "label": "Yarn Details and Remark"
+  },
+  {
+   "fieldname": "yarn_details",
+   "fieldtype": "Table",
+   "label": "Yarn Details",
+   "options": "Fabric Master Yarn Detail"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "costing_knitting_code",
+   "fieldtype": "Data",
+   "label": "Costing Knitting Code"
+  },
+  {
+   "fieldname": "costing_mc_processes",
+   "fieldtype": "JSON",
+   "label": "Costing MC Processes",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "column_break_ptic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_bivz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_pmuw",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-17 16:11:02.632983",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Fabric Master",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

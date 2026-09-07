@@ -1,0 +1,497 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 0,
+ "autoname": "PO-.YYYY.-.#####",
+ "creation": "2026-07-23 00:00:00.000000",
+ "description": "Buyer-issued purchase order landed from OCR extraction. Staging record with a human verification gate — not a transactional order document.",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "identity_section",
+  "brand",
+  "buyer_entity",
+  "po_number",
+  "po_date",
+  "column_break_identity",
+  "po_type",
+  "po_reference",
+  "supplier_code",
+  "revision_no",
+  "is_assorted",
+  "product_section",
+  "style_code",
+  "style_description",
+  "product_category",
+  "season",
+  "fabric_composition",
+  "column_break_product",
+  "fabric_texture",
+  "certification",
+  "hs_code",
+  "country_of_origin",
+  "size_scale_code",
+  "commercial_section",
+  "currency",
+  "base_unit_price",
+  "total_order_qty",
+  "uom",
+  "column_break_commercial",
+  "total_order_value",
+  "payment_terms",
+  "reconciliation_section",
+  "computed_total_qty",
+  "computed_total_value",
+  "column_break_reconciliation",
+  "qty_variance",
+  "value_variance",
+  "delivery_section",
+  "incoterm",
+  "delivery_date",
+  "delivery_location",
+  "mode_of_transport",
+  "column_break_delivery",
+  "forwarding_agent",
+  "packing_instruction",
+  "labelling_instruction",
+  "contacts_section",
+  "buyer_contact",
+  "column_break_contacts",
+  "supplier_name",
+  "compliance_section",
+  "care_instructions",
+  "lines_section",
+  "lines",
+  "assortment_section",
+  "assortment_data",
+  "system_section",
+  "source_file",
+  "source_format",
+  "extraction_status",
+  "column_break_system",
+  "extraction_notes",
+  "parsed_payload"
+ ],
+ "fields": [
+  {
+   "fieldname": "identity_section",
+   "fieldtype": "Section Break",
+   "label": "Identity"
+  },
+  {
+   "description": "Retail brand the order is for. NOT the entity that issued the PO. Stored as printed — resolution to the Brand master is a downstream step.",
+   "fieldname": "brand",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Brand",
+   "search_index": 1
+  },
+  {
+   "description": "Legal entity issuing the order — sourcing arm, agent or brand itself.",
+   "fieldname": "buyer_entity",
+   "fieldtype": "Data",
+   "label": "Buyer / Issuing Entity",
+   "search_index": 1
+  },
+  {
+   "description": "Primary order number printed on the document.",
+   "fieldname": "po_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "PO / Order Number",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "description": "Date the order was raised.",
+   "fieldname": "po_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "PO Date"
+  },
+  {
+   "fieldname": "column_break_identity",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Firm PO vs framework contract vs call-off. Free text — seen so far: Purchase Order, Contract (Call-off), Framework Agreement.",
+   "fieldname": "po_type",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Document Type"
+  },
+  {
+   "description": "Project no / contract no / computer reference used for grouping.",
+   "fieldname": "po_reference",
+   "fieldtype": "Data",
+   "label": "Secondary Reference"
+  },
+  {
+   "description": "Buyer's internal code for PSL.",
+   "fieldname": "supplier_code",
+   "fieldtype": "Data",
+   "label": "Supplier / Vendor Code"
+  },
+  {
+   "description": "Amendment marker. Part of the duplicate key with PO number and buyer entity.",
+   "fieldname": "revision_no",
+   "fieldtype": "Data",
+   "label": "Revision / Version"
+  },
+  {
+   "default": "0",
+   "description": "Order carries assortment ratio grids. Their pack data lives in Assortment Data — line quantities come from the consolidated colour x size matrix to avoid double counting.",
+   "fieldname": "is_assorted",
+   "fieldtype": "Check",
+   "label": "Is Assorted"
+  },
+  {
+   "fieldname": "product_section",
+   "fieldtype": "Section Break",
+   "label": "Product"
+  },
+  {
+   "description": "Buyer's style reference at order level.",
+   "fieldname": "style_code",
+   "fieldtype": "Data",
+   "label": "Style / Article Code"
+  },
+  {
+   "description": "Garment description exactly as printed.",
+   "fieldname": "style_description",
+   "fieldtype": "Data",
+   "label": "Style Description"
+  },
+  {
+   "description": "Normalised garment type — feeds Category Intelligence.",
+   "fieldname": "product_category",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Product Category"
+  },
+  {
+   "description": "Buying season.",
+   "fieldname": "season",
+   "fieldtype": "Data",
+   "label": "Season"
+  },
+  {
+   "description": "Blend string as printed. Stored raw, normalised downstream.",
+   "fieldname": "fabric_composition",
+   "fieldtype": "Small Text",
+   "label": "Fabric Composition"
+  },
+  {
+   "fieldname": "column_break_product",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Knit vs woven, plus knit weight class.",
+   "fieldname": "fabric_texture",
+   "fieldtype": "Data",
+   "label": "Fabric Texture / Construction"
+  },
+  {
+   "description": "Sustainability / compliance certification on the order.",
+   "fieldname": "certification",
+   "fieldtype": "Data",
+   "label": "Certification"
+  },
+  {
+   "description": "Tariff code — accuracy anchor for category mapping. Also held at line level where it varies.",
+   "fieldname": "hs_code",
+   "fieldtype": "Data",
+   "label": "HS / HTS Code (order level)"
+  },
+  {
+   "description": "Manufacturing origin, normalised (e.g. INDE -> India).",
+   "fieldname": "country_of_origin",
+   "fieldtype": "Data",
+   "label": "Country of Origin"
+  },
+  {
+   "description": "Buyer's size-grid identifier; drives the size columns.",
+   "fieldname": "size_scale_code",
+   "fieldtype": "Data",
+   "label": "Size Scale / Grid Code"
+  },
+  {
+   "fieldname": "commercial_section",
+   "fieldtype": "Section Break",
+   "label": "Commercial"
+  },
+  {
+   "description": "Order currency, as an ISO code. Free text — a code that is not in the Currency master still saves, but is flagged in Extraction Notes.",
+   "fieldname": "currency",
+   "fieldtype": "Data",
+   "label": "Currency"
+  },
+  {
+   "description": "Default price per unit before line-level overrides.",
+   "fieldname": "base_unit_price",
+   "fieldtype": "Currency",
+   "label": "Base / Main Unit Price",
+   "options": "currency"
+  },
+  {
+   "description": "Total as printed. Reconciled against the sum of child rows below.",
+   "fieldname": "total_order_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Total Order Quantity",
+   "precision": "2"
+  },
+  {
+   "description": "Selling unit. Free text — seen so far: PCS, EA, SU, SET.",
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "label": "Unit of Measure"
+  },
+  {
+   "fieldname": "column_break_commercial",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Total value as printed. Derived from the lines where the PO does not print one.",
+   "fieldname": "total_order_value",
+   "fieldtype": "Currency",
+   "label": "Total Order Value",
+   "options": "currency"
+  },
+  {
+   "description": "Payment / LC terms.",
+   "fieldname": "payment_terms",
+   "fieldtype": "Small Text",
+   "label": "Payment Terms"
+  },
+  {
+   "collapsible": 1,
+   "description": "Computed from the line items on every save. A non-zero variance means the printed totals disagree with the extracted lines — resolve before verifying.",
+   "fieldname": "reconciliation_section",
+   "fieldtype": "Section Break",
+   "label": "Reconciliation"
+  },
+  {
+   "fieldname": "computed_total_qty",
+   "fieldtype": "Float",
+   "label": "Computed Total Quantity",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "computed_total_value",
+   "fieldtype": "Currency",
+   "label": "Computed Total Value",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_reconciliation",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Computed less printed.",
+   "fieldname": "qty_variance",
+   "fieldtype": "Float",
+   "label": "Quantity Variance",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "description": "Computed less printed.",
+   "fieldname": "value_variance",
+   "fieldtype": "Currency",
+   "label": "Value Variance",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "delivery_section",
+   "fieldtype": "Section Break",
+   "label": "Delivery"
+  },
+  {
+   "description": "Trade term plus named port.",
+   "fieldname": "incoterm",
+   "fieldtype": "Data",
+   "label": "Incoterm"
+  },
+  {
+   "description": "Contractual latest delivery date at order level.",
+   "fieldname": "delivery_date",
+   "fieldtype": "Date",
+   "label": "Delivery Date (latest)",
+   "search_index": 1
+  },
+  {
+   "description": "Final warehouse or DC with address.",
+   "fieldname": "delivery_location",
+   "fieldtype": "Small Text",
+   "label": "Delivery / Ship-To Location"
+  },
+  {
+   "description": "Carriage mode. Free text — seen so far: Sea, Air, Road, Rail.",
+   "fieldname": "mode_of_transport",
+   "fieldtype": "Data",
+   "label": "Mode of Transport"
+  },
+  {
+   "fieldname": "column_break_delivery",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Nominated freight forwarder.",
+   "fieldname": "forwarding_agent",
+   "fieldtype": "Data",
+   "label": "Forwarding Agent"
+  },
+  {
+   "description": "Pack / carton / palletisation instruction.",
+   "fieldname": "packing_instruction",
+   "fieldtype": "Small Text",
+   "label": "Packing Instruction"
+  },
+  {
+   "description": "Price tag, RFID or EAN labelling instruction.",
+   "fieldname": "labelling_instruction",
+   "fieldtype": "Small Text",
+   "label": "Labelling / Price Ticket"
+  },
+  {
+   "fieldname": "contacts_section",
+   "fieldtype": "Section Break",
+   "label": "Contacts"
+  },
+  {
+   "description": "Named counterpart on the buyer side.",
+   "fieldname": "buyer_contact",
+   "fieldtype": "Data",
+   "label": "Buyer / Merchandiser Contact"
+  },
+  {
+   "fieldname": "column_break_contacts",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "PSL entity named on the order — unit matters.",
+   "fieldname": "supplier_name",
+   "fieldtype": "Data",
+   "label": "Supplier / Producer"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "compliance_section",
+   "fieldtype": "Section Break",
+   "label": "Compliance"
+  },
+  {
+   "description": "Wash / bleach / iron / dry / professional care set.",
+   "fieldname": "care_instructions",
+   "fieldtype": "Long Text",
+   "label": "Care Instructions"
+  },
+  {
+   "fieldname": "lines_section",
+   "fieldtype": "Section Break",
+   "label": "Line Items"
+  },
+  {
+   "description": "One row per Style x Colour x Size.",
+   "fieldname": "lines",
+   "fieldtype": "Table",
+   "label": "Line Items",
+   "options": "Buyer PO Line Item"
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "is_assorted",
+   "fieldname": "assortment_section",
+   "fieldtype": "Section Break",
+   "label": "Assortment"
+  },
+  {
+   "description": "Assortment ratio grids as JSON, e.g. [{\"code\": \"A01\", \"colour\": \"BEIGE STAR\", \"assortments\": 16, \"ratio\": {\"XS\": 1, \"S\": 3}}]. Pack data only — never summed into line quantities.",
+   "fieldname": "assortment_data",
+   "fieldtype": "JSON",
+   "label": "Assortment Data"
+  },
+  {
+   "fieldname": "system_section",
+   "fieldtype": "Section Break",
+   "label": "System"
+  },
+  {
+   "description": "The uploaded OCR-extracted Excel, kept for audit. Required before the record can be Verified.",
+   "fieldname": "source_file",
+   "fieldtype": "Attach",
+   "label": "Source File"
+  },
+  {
+   "description": "Which parser template was applied. Drives the mapping. Free text so a new buyer format can be onboarded without a schema change — current templates: KIABI-ITX, Tchibo, DMart.",
+   "fieldname": "source_format",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Detected Source Format",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Draft",
+   "description": "Human verification gate before the PO is used downstream. Promotion to Verified enforces the full required-field set.",
+   "fieldname": "extraction_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Extraction Status",
+   "options": "Draft\nParsed\nVerified\nFailed",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_system",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Parser warnings, unmapped values, reconciliation mismatches. Text below the auto-checks marker is rewritten on every save.",
+   "fieldname": "extraction_notes",
+   "fieldtype": "Long Text",
+   "label": "Extraction Notes"
+  },
+  {
+   "description": "Raw parser output, kept so a bad extraction can be diagnosed without re-running OCR.",
+   "fieldname": "parsed_payload",
+   "fieldtype": "JSON",
+   "label": "Parsed Payload"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-07-23 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Buyer PO",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "po_number"
+}

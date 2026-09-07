@@ -1,0 +1,291 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-06-15 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "style_section",
+  "style_id",
+  "style_sku",
+  "style_name",
+  "garment_name",
+  "style_brand",
+  "product_type",
+  "thumbnail",
+  "brand_style_number",
+  "qty_section",
+  "total_qty",
+  "sample_requested",
+  "sample_total_qty",
+  "sample_type",
+  "color_section",
+  "color_hex",
+  "color_name",
+  "color_tcx",
+  "colors",
+  "ai_colored_image",
+  "fabric_section",
+  "fabric_name",
+  "fabric_description",
+  "fabric_blend",
+  "is_blend_change_requested",
+  "changed_blend",
+  "fabric_quality",
+  "gsm",
+  "calculated_esg_section",
+  "esg_rating",
+  "esg_category",
+  "esg_score",
+  "pricing_section",
+  "target_price",
+  "target_price_currency",
+  "tentative_delivery_date",
+  "line_notes",
+  "json_section",
+  "sizes",
+  "size_quantities",
+  "sample_size_quantities",
+  "customization"
+ ],
+ "fields": [
+  {
+   "fieldname": "style_section",
+   "fieldtype": "Section Break",
+   "label": "Style"
+  },
+  {
+   "fieldname": "style_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Style Id"
+  },
+  {
+   "fieldname": "style_sku",
+   "fieldtype": "Data",
+   "label": "Style SKU"
+  },
+  {
+   "fieldname": "style_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Style Name"
+  },
+  {
+   "fieldname": "garment_name",
+   "fieldtype": "Data",
+   "label": "Garment Name"
+  },
+  {
+   "fieldname": "style_brand",
+   "fieldtype": "Data",
+   "label": "Style Brand"
+  },
+  {
+   "fieldname": "product_type",
+   "fieldtype": "Data",
+   "label": "Product Type"
+  },
+  {
+   "fieldname": "thumbnail",
+   "fieldtype": "Small Text",
+   "label": "Thumbnail"
+  },
+  {
+   "fieldname": "brand_style_number",
+   "fieldtype": "Data",
+   "label": "Brand Style Number"
+  },
+  {
+   "fieldname": "qty_section",
+   "fieldtype": "Section Break",
+   "label": "Quantities"
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Qty"
+  },
+  {
+   "default": "0",
+   "fieldname": "sample_requested",
+   "fieldtype": "Check",
+   "label": "Sample Requested"
+  },
+  {
+   "fieldname": "sample_total_qty",
+   "fieldtype": "Int",
+   "label": "Sample Total Qty"
+  },
+  {
+   "fieldname": "sample_type",
+   "fieldtype": "Data",
+   "label": "Sample Type"
+  },
+  {
+   "fieldname": "color_section",
+   "fieldtype": "Section Break",
+   "label": "Color"
+  },
+  {
+   "fieldname": "color_hex",
+   "fieldtype": "Data",
+   "label": "Color Hex"
+  },
+  {
+   "fieldname": "color_name",
+   "fieldtype": "Data",
+   "label": "Color Name"
+  },
+  {
+   "fieldname": "color_tcx",
+   "fieldtype": "Data",
+   "label": "Color TCX"
+  },
+  {
+   "description": "JSON array of colour objects [{hex, name, tcx}]. Multi-colour support; the flat color_hex/name/tcx above mirror the first entry for backward compatibility.",
+   "fieldname": "colors",
+   "fieldtype": "JSON",
+   "label": "Colors"
+  },
+  {
+   "description": "AI-generated recolour of the style. Frontend may send a base64 data URL on save; it is converted to a stored File and this holds the resulting URL.",
+   "fieldname": "ai_colored_image",
+   "fieldtype": "Attach Image",
+   "label": "AI Colored Image"
+  },
+  {
+   "fieldname": "fabric_section",
+   "fieldtype": "Section Break",
+   "label": "Fabric"
+  },
+  {
+   "fieldname": "fabric_name",
+   "fieldtype": "Data",
+   "label": "Fabric Name"
+  },
+  {
+   "fieldname": "fabric_description",
+   "fieldtype": "Small Text",
+   "label": "Fabric Description"
+  },
+  {
+   "fieldname": "fabric_blend",
+   "fieldtype": "Data",
+   "label": "Original Fabric Blend"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_blend_change_requested",
+   "fieldtype": "Check",
+   "label": "Is Blend Change Requested"
+  },
+  {
+   "fieldname": "changed_blend",
+   "fieldtype": "Data",
+   "label": "Changed Blend"
+  },
+  {
+   "fieldname": "fabric_quality",
+   "fieldtype": "Data",
+   "label": "Fabric Quality"
+  },
+  {
+   "fieldname": "gsm",
+   "fieldtype": "Int",
+   "label": "GSM"
+  },
+  {
+   "fieldname": "calculated_esg_section",
+   "fieldtype": "Section Break",
+   "label": "Calculated ESG"
+  },
+  {
+   "fieldname": "esg_rating",
+   "fieldtype": "Data",
+   "label": "ESG Rating"
+  },
+  {
+   "fieldname": "esg_category",
+   "fieldtype": "Data",
+   "label": "ESG Category"
+  },
+  {
+   "fieldname": "esg_score",
+   "fieldtype": "Float",
+   "label": "ESG Score",
+   "precision": "2"
+  },
+  {
+   "fieldname": "pricing_section",
+   "fieldtype": "Section Break",
+   "label": "Pricing"
+  },
+  {
+   "fieldname": "target_price",
+   "fieldtype": "Float",
+   "label": "Target Price",
+   "precision": "2"
+  },
+  {
+   "fieldname": "target_price_currency",
+   "fieldtype": "Data",
+   "label": "Target Price Currency"
+  },
+  {
+   "fieldname": "tentative_delivery_date",
+   "fieldtype": "Data",
+   "label": "Tentative Delivery Date"
+  },
+  {
+   "fieldname": "line_notes",
+   "fieldtype": "Small Text",
+   "label": "Line Notes"
+  },
+  {
+   "fieldname": "json_section",
+   "fieldtype": "Section Break",
+   "label": "Dynamic Maps"
+  },
+  {
+   "description": "JSON array of size labels.",
+   "fieldname": "sizes",
+   "fieldtype": "JSON",
+   "label": "Sizes"
+  },
+  {
+   "description": "JSON map size -> qty.",
+   "fieldname": "size_quantities",
+   "fieldtype": "JSON",
+   "label": "Size Quantities"
+  },
+  {
+   "description": "JSON map size -> qty for samples.",
+   "fieldname": "sample_size_quantities",
+   "fieldtype": "JSON",
+   "label": "Sample Size Quantities"
+  },
+  {
+   "description": "JSON fabric/colour/print override object.",
+   "fieldname": "customization",
+   "fieldtype": "JSON",
+   "label": "Customization"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-07-15 00:00:02.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Request Line",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

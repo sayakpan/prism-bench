@@ -1,0 +1,6 @@
+openai
+anthropic
+sqlglot
+boto3
+openpyxl
+Pillow

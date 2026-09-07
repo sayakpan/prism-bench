@@ -1,0 +1,170 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "hash",
+ "creation": "2026-08-06 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "brand_name",
+  "website",
+  "slug",
+  "column_break_head",
+  "status",
+  "current_version",
+  "version_count",
+  "engine_section",
+  "last_engine_started_at",
+  "last_engine_finished_at",
+  "last_engine_error",
+  "column_break_engine",
+  "last_data_scraped_at",
+  "last_scrape_row_count",
+  "total_products",
+  "files_section",
+  "scrape_files"
+ ],
+ "fields": [
+  {
+   "description": "Scraper-side brand. Deliberately unrelated to the Brand doctype.",
+   "fieldname": "brand_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Brand Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Website",
+   "reqd": 1
+  },
+  {
+   "description": "Lower-cased alphanumeric brand name. Used in the scraped-file name.",
+   "fieldname": "slug",
+   "fieldtype": "Data",
+   "label": "Slug",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_head",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "New",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "New\nEngine Running\nPrototype Ready\nScraped\nFailed"
+  },
+  {
+   "fieldname": "current_version",
+   "fieldtype": "Link",
+   "label": "Current Version",
+   "options": "Scraper Brand Version"
+  },
+  {
+   "fieldname": "version_count",
+   "fieldtype": "Int",
+   "label": "Version Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "engine_section",
+   "fieldtype": "Section Break",
+   "label": "Stats"
+  },
+  {
+   "description": "Stamped when the frontend AI engine starts a run.",
+   "fieldname": "last_engine_started_at",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Last Engine Started At"
+  },
+  {
+   "description": "Stamped when the engine posts a version (modified or not).",
+   "fieldname": "last_engine_finished_at",
+   "fieldtype": "Datetime",
+   "label": "Last Engine Finished At"
+  },
+  {
+   "description": "Why the last run failed. Cleared when a new run starts or one finishes cleanly.",
+   "fieldname": "last_engine_error",
+   "fieldtype": "Small Text",
+   "label": "Last Engine Error",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_engine",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Stamped when a scraped Excel file is posted to the backend.",
+   "fieldname": "last_data_scraped_at",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Last Data Scraped At"
+  },
+  {
+   "description": "Rows in the most recent scraped file.",
+   "fieldname": "last_scrape_row_count",
+   "fieldtype": "Int",
+   "label": "Last Scrape Row Count",
+   "read_only": 1
+  },
+  {
+   "description": "Live count of Scraper Product rows for this brand.",
+   "fieldname": "total_products",
+   "fieldtype": "Int",
+   "label": "Total Products",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "files_section",
+   "fieldtype": "Section Break",
+   "label": "Scraped Files"
+  },
+  {
+   "description": "Append-only array of S3 links: [{file_name, url, uploaded_at, row_count, partial}].",
+   "fieldname": "scrape_files",
+   "fieldtype": "JSON",
+   "label": "Scrape Files",
+   "max_height": "200px"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-06 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Scraper Brand",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "brand_name"
+}

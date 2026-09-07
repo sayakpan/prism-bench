@@ -1,0 +1,338 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-06-16 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "fabric",
+  "selected",
+  "source",
+  "rank",
+  "source_id",
+  "match_score",
+  "match_source",
+  "matched_brief_index",
+  "matched_brief_fabric",
+  "best_for",
+  "reason",
+  "caveats",
+  "fit_score",
+  "score_breakdown",
+  "fabric_name",
+  "code",
+  "batch",
+  "description",
+  "ai_description",
+  "custom_fabric_name",
+  "quality",
+  "quality_label",
+  "construction_family",
+  "texture_tags",
+  "structure_ratio",
+  "blend",
+  "composition",
+  "composition_label",
+  "composition_pct",
+  "gsm",
+  "color",
+  "shade",
+  "shade_category",
+  "finish",
+  "matched_palette_id",
+  "matched_palette_name",
+  "needs_dyeing",
+  "price_from_fabric_masters",
+  "closest_fabric_master",
+  "variant_count",
+  "variant_codes",
+  "has_image",
+  "image_url",
+  "relevancy_score",
+  "recommendation"
+ ],
+ "fields": [
+  {
+   "description": "The dyed fabric this row is. A Link, unlike Moodboard Surplus Fabric's fab_code, because a dyed recommendation IS one catalogue row: moodboard_dyed_recommender returns its docname as `id`, and that docname is the row's identity here. Two sent items carrying the same id are the same row and collapse. `code` cannot serve instead — 14,334 distinct codes across 24,838 rows, so it is not unique.",
+   "fieldname": "fabric",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Dyed Fabric",
+   "options": "Moodboard Dyed Fabric"
+  },
+  {
+   "default": "0",
+   "description": "Whether this fabric is on the board. All recommendations are stored; the user's picks are marked selected. Mirrors Moodboard Surplus Fabric — a fabric the user passed over stays as an unselected row, so re-running the recommender is not what removes it.",
+   "fieldname": "selected",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Selected"
+  },
+  {
+   "default": "recommended",
+   "description": "How the fabric got onto the board: 'recommended' (moodboard_dyed_recommender.recommend) or 'library' (browsed from catalogue()). Library picks carry no match_score / reason / brief attribution, so the UI needs to tell them apart rather than render them as 0-scored recommendations.",
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Source"
+  },
+  {
+   "description": "Position in the recommender's returned order (0-based), preserved so the board can re-render the ranking it was shown.",
+   "fieldname": "rank",
+   "fieldtype": "Int",
+   "label": "Rank"
+  },
+  {
+   "description": "Client-side row id, echoed back untouched. Legacy of the get_matching_fabrics flow; the recommender does not send one.",
+   "fieldname": "source_id",
+   "fieldtype": "Data",
+   "label": "Source Id"
+  },
+  {
+   "description": "0-100. The LLM re-rank's score where it picked the fabric, else the deterministic ranking's. Distinct from fit_score, which is the scorer's own number and survives the re-rank untouched.",
+   "fieldname": "match_score",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Match Score"
+  },
+  {
+   "description": "'llm' when the LLM re-rank picked it, 'score' when it was backfilled from the deterministic ranking.",
+   "fieldname": "match_source",
+   "fieldtype": "Data",
+   "label": "Match Source"
+  },
+  {
+   "fieldname": "matched_brief_index",
+   "fieldtype": "Int",
+   "label": "Matched Brief Index"
+  },
+  {
+   "fieldname": "matched_brief_fabric",
+   "fieldtype": "Data",
+   "label": "Matched Brief Fabric"
+  },
+  {
+   "fieldname": "best_for",
+   "fieldtype": "Small Text",
+   "label": "Best For"
+  },
+  {
+   "description": "The LLM's written rationale. Promoted to a column (rather than left in `recommendation`) because it is what a user asks about later.",
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason"
+  },
+  {
+   "description": "JSON array of strings, e.g. [\"undyed\"].",
+   "fieldname": "caveats",
+   "fieldtype": "JSON",
+   "label": "Caveats"
+  },
+  {
+   "description": "The deterministic scorer's 0-100 fit, before any LLM re-rank. Kept beside match_score because the two answer different questions: how well the cloth fits the spec, versus where the recommender chose to rank it.",
+   "fieldname": "fit_score",
+   "fieldtype": "Float",
+   "label": "Fit Score",
+   "precision": "2"
+  },
+  {
+   "description": "The fit_score's components (construction / composition / gsm / stretch_penalty / color_penalty), as returned. JSON, never queried — it is shown when a user asks why a fabric scored what it did.",
+   "fieldname": "score_breakdown",
+   "fieldtype": "JSON",
+   "label": "Score Breakdown"
+  },
+  {
+   "fieldname": "fabric_name",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "description": "The fabric code. NOT unique across the catalogue — see `fabric` for why identity lives there.",
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Code"
+  },
+  {
+   "description": "The batch the swatch is keyed on. Image URLs are not stored — they are rebuilt from this on read as plain public asset URLs (never presigned, so the client can cache them), which is also why a re-photographed batch appears without rewriting anything here.",
+   "fieldname": "batch",
+   "fieldtype": "Data",
+   "label": "Batch"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "ai_description",
+   "fieldtype": "Small Text",
+   "label": "AI Description"
+  },
+  {
+   "fieldname": "custom_fabric_name",
+   "fieldtype": "Data",
+   "label": "Custom Fabric Name"
+  },
+  {
+   "description": "The raw construction string the fabric was scored on — clean_quality falling back to quality, whichever the recommender read.",
+   "fieldname": "quality",
+   "fieldtype": "Data",
+   "label": "Quality"
+  },
+  {
+   "fieldname": "quality_label",
+   "fieldtype": "Data",
+   "label": "Quality Label"
+  },
+  {
+   "description": "The classified construction family (jersey, rib, interlock, ...), as the shared surplus_recommender vocabulary read it.",
+   "fieldname": "construction_family",
+   "fieldtype": "Data",
+   "label": "Construction Family"
+  },
+  {
+   "description": "JSON array of strings.",
+   "fieldname": "texture_tags",
+   "fieldtype": "JSON",
+   "label": "Texture Tags"
+  },
+  {
+   "description": "Gauge ratio for a structured construction, e.g. '2x1' for a rib. Null where the construction has none.",
+   "fieldname": "structure_ratio",
+   "fieldtype": "Data",
+   "label": "Structure Ratio"
+  },
+  {
+   "description": "Legacy column from the get_matching_fabrics flow. The recommender sends the blend as `composition`; this is written from it too, so a client that mapped `blend` keeps working.",
+   "fieldname": "blend",
+   "fieldtype": "Data",
+   "label": "Blend"
+  },
+  {
+   "description": "The raw blend string as catalogued, e.g. '95% Cotton 5% Spandex'.",
+   "fieldname": "composition",
+   "fieldtype": "Data",
+   "label": "Composition"
+  },
+  {
+   "fieldname": "composition_label",
+   "fieldtype": "Data",
+   "label": "Composition Label"
+  },
+  {
+   "description": "Fibre shares as a JSON object, e.g. {\"cotton\": 95.0, \"elastane\": 5.0}. Rescaled to total 100 by the recommender, so it will not always echo the raw string's numbers.",
+   "fieldname": "composition_pct",
+   "fieldtype": "JSON",
+   "label": "Composition %"
+  },
+  {
+   "fieldname": "gsm",
+   "fieldtype": "Int",
+   "label": "GSM"
+  },
+  {
+   "description": "This fabric's colour. A scalar, not surplus's colourway list: one dyed catalogue row is one colour. Empty on every row in the catalogue today, which is why needs_dyeing comes back true across the board.",
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Colour"
+  },
+  {
+   "fieldname": "shade",
+   "fieldtype": "Data",
+   "label": "Shade"
+  },
+  {
+   "fieldname": "shade_category",
+   "fieldtype": "Data",
+   "label": "Shade Category"
+  },
+  {
+   "fieldname": "finish",
+   "fieldtype": "Data",
+   "label": "Finish"
+  },
+  {
+   "description": "The brief palette colour this fabric already answers, when it was colour-matched. Null for a fabric chosen on construction alone — which is every fabric today, the catalogue's `color` column being empty.",
+   "fieldname": "matched_palette_id",
+   "fieldtype": "Data",
+   "label": "Matched Palette Colour Id"
+  },
+  {
+   "fieldname": "matched_palette_name",
+   "fieldtype": "Data",
+   "label": "Matched Palette Colour Name"
+  },
+  {
+   "default": "0",
+   "description": "No colour recorded, or an RFD shade, so the cloth could be taken to any palette colour. True on every row today.",
+   "fieldname": "needs_dyeing",
+   "fieldtype": "Check",
+   "label": "Needs Dyeing"
+  },
+  {
+   "description": "All-in per-kg cost of the Fabric Master this fabric was matched to, loss % included. A specification's cost to MAKE — there is deliberately no price beside it, because a catalogue entry is not cloth that was bought for a number.",
+   "fieldname": "price_from_fabric_masters",
+   "fieldtype": "Currency",
+   "label": "Price From Fabric Masters"
+  },
+  {
+   "description": "The matched Fabric Master's docname. Data, not a Link: this is a snapshot of what the recommender returned, and a Fabric Master deleted later must not make the whole board unsaveable in _validate_links.",
+   "fieldname": "closest_fabric_master",
+   "fieldtype": "Data",
+   "label": "Closest Fabric Master"
+  },
+  {
+   "description": "How many catalogue rows folded into this recommendation. The recommender de-duplicates by scoring identity — 24,838 rows collapse to ~1,400 distinct specifications — so one row here can stand for several. The board selects the fold, not a variant.",
+   "fieldname": "variant_count",
+   "fieldtype": "Int",
+   "label": "Variant Count"
+  },
+  {
+   "description": "JSON array of the distinct fabric codes behind the fold, capped by the recommender. Display only.",
+   "fieldname": "variant_codes",
+   "fieldtype": "JSON",
+   "label": "Variant Codes"
+  },
+  {
+   "default": "0",
+   "description": "Whether this fabric's batch has a photographed swatch. Lets the board show a no-image tile without a lookup per row, and is what decides whether image URLs are rebuilt on read at all.",
+   "fieldname": "has_image",
+   "fieldtype": "Check",
+   "label": "Has Image"
+  },
+  {
+   "description": "Legacy column from the get_matching_fabrics flow, still written and still read as the fallback for rows that predate `has_image`. New rows rebuild their URLs from `batch` instead.",
+   "fieldname": "image_url",
+   "fieldtype": "Data",
+   "label": "Image URL"
+  },
+  {
+   "description": "Legacy 0-100 score from get_matching_fabrics. The recommender's equivalents are match_score and fit_score.",
+   "fieldname": "relevancy_score",
+   "fieldtype": "Float",
+   "label": "Relevancy Score",
+   "precision": "2"
+  },
+  {
+   "description": "The raw recommendation object verbatim, minus the rebuildable image_url/thumbnail. Nothing the recommender returns is lost, and a new field there needs no migration here.",
+   "fieldname": "recommendation",
+   "fieldtype": "Long Text",
+   "label": "Raw Recommendation"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-08-26 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Moodboard Fabric",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

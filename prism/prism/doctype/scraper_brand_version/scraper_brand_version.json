@@ -1,0 +1,145 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "hash",
+ "creation": "2026-08-06 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "scraper_brand",
+  "version_no",
+  "parent_version",
+  "column_break_head",
+  "source",
+  "actor",
+  "content_hash",
+  "change_summary",
+  "prototype_section",
+  "prototype_json",
+  "html_section",
+  "html_files",
+  "code_section",
+  "scraper_code"
+ ],
+ "fields": [
+  {
+   "fieldname": "scraper_brand",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Scraper Brand",
+   "options": "Scraper Brand",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "description": "Per-brand sequence, 1..n.",
+   "fieldname": "version_no",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Version No"
+  },
+  {
+   "fieldname": "parent_version",
+   "fieldtype": "Link",
+   "label": "Previous Version",
+   "options": "Scraper Brand Version"
+  },
+  {
+   "fieldname": "column_break_head",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "AI Engine",
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Source",
+   "options": "AI Engine\nManual\nRestored"
+  },
+  {
+   "description": "Email of the user whose session posted this version.",
+   "fieldname": "actor",
+   "fieldtype": "Data",
+   "label": "Actor"
+  },
+  {
+   "description": "sha256 over prototype + html files + code. Identical content is never versioned twice.",
+   "fieldname": "content_hash",
+   "fieldtype": "Data",
+   "label": "Content Hash",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "description": "Human summary, e.g. \"prototype, 2 html files changed\".",
+   "fieldname": "change_summary",
+   "fieldtype": "Small Text",
+   "label": "Change Summary"
+  },
+  {
+   "fieldname": "prototype_section",
+   "fieldtype": "Section Break",
+   "label": "Prototype"
+  },
+  {
+   "fieldname": "prototype_json",
+   "fieldtype": "JSON",
+   "label": "Prototype Json",
+   "max_height": "300px"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "html_section",
+   "fieldtype": "Section Break",
+   "label": "HTML Files"
+  },
+  {
+   "description": "Array of {file_name, content} -- the 5-6 HTML files the engine emits.",
+   "fieldname": "html_files",
+   "fieldtype": "JSON",
+   "label": "Html Files",
+   "max_height": "300px"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "code_section",
+   "fieldtype": "Section Break",
+   "label": "Scraper Code"
+  },
+  {
+   "fieldname": "scraper_code",
+   "fieldtype": "Code",
+   "label": "Scraper Code",
+   "options": "Python"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-06 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Scraper Brand Version",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

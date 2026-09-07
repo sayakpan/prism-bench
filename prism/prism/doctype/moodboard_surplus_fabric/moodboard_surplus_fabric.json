@@ -1,0 +1,218 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-08-13 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "fab_code",
+  "selected",
+  "source",
+  "rank",
+  "match_score",
+  "match_source",
+  "matched_brief_index",
+  "matched_brief_fabric",
+  "best_for",
+  "reason",
+  "caveats",
+  "quality_label",
+  "composition",
+  "composition_label",
+  "gsm",
+  "available",
+  "available_uom",
+  "price_per_uom",
+  "color",
+  "batch",
+  "batch_color",
+  "batch_shade_category",
+  "palette_id",
+  "palette_name",
+  "has_image",
+  "colors",
+  "recommendation"
+ ],
+ "fields": [
+  {
+   "description": "The surplus_recommender fab-code group this row belongs to. NOT a Link: a recommendation aggregates many Surplus Stock lots, so no single master row exists. Identity here is (fab_code, batch) — one row per dye lot on the board — but this alone stays the join key for Moodboard Surplus Recolour, which is shared across all of a fab code's batches.",
+   "fieldname": "fab_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fab Code",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "0",
+   "description": "Whether THIS batch is on the board. All recommendations are stored; the user's picks are marked selected. Mirrors Moodboard Fabric. A fab code the user took five batches of has five selected rows; one they passed over has a single unselected row carrying the recommender's default batch.",
+   "fieldname": "selected",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Selected"
+  },
+  {
+   "default": "recommended",
+   "description": "How the fabric got onto the board: 'recommended' (surplus_recommender.recommend) or 'library' (browsed from the catalogue). Library picks carry no match_score / reason / brief attribution, so the UI needs to tell them apart.",
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Source"
+  },
+  {
+   "description": "Position in the recommender's returned order (0-based), preserved so the board can re-render the ranking it was shown.",
+   "fieldname": "rank",
+   "fieldtype": "Int",
+   "label": "Rank"
+  },
+  {
+   "fieldname": "match_score",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Match Score"
+  },
+  {
+   "description": "'llm' when the LLM re-rank picked it, 'score' when it was backfilled from the deterministic ranking.",
+   "fieldname": "match_source",
+   "fieldtype": "Data",
+   "label": "Match Source"
+  },
+  {
+   "fieldname": "matched_brief_index",
+   "fieldtype": "Int",
+   "label": "Matched Brief Index"
+  },
+  {
+   "fieldname": "matched_brief_fabric",
+   "fieldtype": "Data",
+   "label": "Matched Brief Fabric"
+  },
+  {
+   "fieldname": "best_for",
+   "fieldtype": "Small Text",
+   "label": "Best For"
+  },
+  {
+   "description": "The LLM's written rationale. Promoted to a column (rather than left in `recommendation`) because it is what a user asks about later.",
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason"
+  },
+  {
+   "description": "JSON array of strings.",
+   "fieldname": "caveats",
+   "fieldtype": "JSON",
+   "label": "Caveats"
+  },
+  {
+   "fieldname": "quality_label",
+   "fieldtype": "Data",
+   "label": "Quality"
+  },
+  {
+   "description": "The raw blend string as stocked, e.g. '95% Cotton/5% Spandex'.",
+   "fieldname": "composition",
+   "fieldtype": "Data",
+   "label": "Composition"
+  },
+  {
+   "fieldname": "composition_label",
+   "fieldtype": "Data",
+   "label": "Composition Label"
+  },
+  {
+   "fieldname": "gsm",
+   "fieldtype": "Int",
+   "label": "GSM"
+  },
+  {
+   "fieldname": "available",
+   "fieldtype": "Float",
+   "label": "Available",
+   "precision": "2"
+  },
+  {
+   "default": "KG",
+   "fieldname": "available_uom",
+   "fieldtype": "Data",
+   "label": "Available UOM"
+  },
+  {
+   "fieldname": "price_per_uom",
+   "fieldtype": "Float",
+   "label": "Price / UOM",
+   "precision": "2"
+  },
+  {
+   "description": "Comma-joined colourway names as stocked. Small Text, not Data: a fab code can carry 20+ colourways and the join overruns 140 chars. The per-colour detail is in `colors`.",
+   "fieldname": "color",
+   "fieldtype": "Small Text",
+   "label": "Colour"
+  },
+  {
+   "description": "The dye lot this row is for. Half of the row's identity: a fab code stocked in five palette colours is five rows here, one per batch, each independently selectable. Image URLs are not stored \u2014 they are rebuilt from this on read as plain public asset URLs (never presigned, so the client can cache them).",
+   "fieldname": "batch",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Batch",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "description": "This batch's own colour as the mill recorded it, denormalised so the board renders a tile without re-reading Surplus Stock. Raw mill text and often truncated ('Wht-Whi', 'Blac') \u2014 display palette_name where there is one.",
+   "fieldname": "batch_color",
+   "fieldtype": "Data",
+   "label": "Batch Colour"
+  },
+  {
+   "fieldname": "batch_shade_category",
+   "fieldtype": "Data",
+   "label": "Batch Shade Category"
+  },
+  {
+   "description": "The brief palette colour this batch was picked to serve, when the recommendation was colour-matched. Empty for a fabric chosen on construction alone.",
+   "fieldname": "palette_id",
+   "fieldtype": "Data",
+   "label": "Palette Colour Id"
+  },
+  {
+   "description": "The palette colour's display name, e.g. 'Ocean Blue'. What the tile should be labelled with \u2014 batch_color is the mill's raw text.",
+   "fieldname": "palette_name",
+   "fieldtype": "Data",
+   "label": "Palette Colour Name"
+  },
+  {
+   "default": "0",
+   "description": "Whether this batch had a swatch photographed when it was added. Lets the board show a no-image tile without a stock lookup per row.",
+   "fieldname": "has_image",
+   "fieldtype": "Check",
+   "label": "Has Image"
+  },
+  {
+   "description": "Colourway variants (JSON array) as returned by the recommender \u2014 rendered as a swatch row, never queried.",
+   "fieldname": "colors",
+   "fieldtype": "JSON",
+   "label": "Colour Variants"
+  },
+  {
+   "description": "The raw recommendation object verbatim, minus the expiring image_url/thumbnail. Nothing the recommender returns is lost, and a new field there needs no migration here.",
+   "fieldname": "recommendation",
+   "fieldtype": "Long Text",
+   "label": "Raw Recommendation"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-08-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Moodboard Surplus Fabric",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

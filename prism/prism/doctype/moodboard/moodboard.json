@@ -1,0 +1,419 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-04-18 11:48:28.654321",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "moodboard_title",
+  "status",
+  "is_active",
+  "column_break_ajao",
+  "setup_stage",
+  "last_published_at",
+  "core_section",
+  "template",
+  "season",
+  "creativity_bias",
+  "mood",
+  "column_break_core",
+  "image_model",
+  "image_size",
+  "primary_version",
+  "thumbnail",
+  "brief_section",
+  "user_vision",
+  "brief",
+  "inspiration_images",
+  "customer_brief",
+  "settings_section",
+  "fabric_auto_suggest",
+  "fabric_auto_count",
+  "style_auto_suggest",
+  "style_auto_count",
+  "variant_count",
+  "foundation_section",
+  "genders",
+  "style_categories",
+  "mood_tags",
+  "colours",
+  "fabrics",
+  "garments",
+  "surplus_fabrics",
+  "surplus_recolours",
+  "direction_section",
+  "keywords",
+  "key_insights",
+  "fabric_direction",
+  "garment_inspiration",
+  "garment_direction_signals",
+  "print_direction",
+  "print_direction_signals",
+  "alignment_section",
+  "alignment_report",
+  "addons_section",
+  "addons",
+  "publish_section",
+  "published_snapshot",
+  "legacy_section",
+  "draft_layout_json",
+  "published_layout_json"
+ ],
+ "fields": [
+  {
+   "fieldname": "moodboard_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Moodboard Title",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nPublished\nUnpublished Changes",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ajao",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Project Brief",
+   "description": "Wizard step the user was last on — drives where \"edit\" resumes. Free-set by the client (it follows the user backwards too), so it is a resume marker, not a progress score. Completeness is primary_version.",
+   "fieldname": "setup_stage",
+   "fieldtype": "Select",
+   "label": "Setup Stage",
+   "options": "Project Brief\nCreative Direction\nFabric Selection\nStyle Generation\nCosting\nESG\nGeneration\nCanvas Edit\nFinal Review"
+  },
+  {
+   "fieldname": "last_published_at",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Last Published At"
+  },
+  {
+   "fieldname": "core_section",
+   "fieldtype": "Section Break",
+   "label": "Core"
+  },
+  {
+   "fieldname": "template",
+   "fieldtype": "Link",
+   "label": "Template",
+   "options": "Moodboard Template"
+  },
+  {
+   "fieldname": "season",
+   "fieldtype": "Link",
+   "label": "Season",
+   "options": "Season"
+  },
+  {
+   "description": "aligned (Closest to PSL) / balanced / trend (Trend-forward) / advanced_trend.",
+   "fieldname": "creativity_bias",
+   "fieldtype": "Select",
+   "label": "Creativity Bias",
+   "options": "\naligned\nbalanced\ntrend\nadvanced_trend"
+  },
+  {
+   "description": "Short mood label; occasionally holds longer free text, so Small Text.",
+   "fieldname": "mood",
+   "fieldtype": "Small Text",
+   "label": "Mood"
+  },
+  {
+   "fieldname": "column_break_core",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "image_model",
+   "fieldtype": "Data",
+   "label": "Image Model"
+  },
+  {
+   "fieldname": "image_size",
+   "fieldtype": "Data",
+   "label": "Image Size"
+  },
+  {
+   "fieldname": "primary_version",
+   "fieldtype": "Link",
+   "label": "Primary Version",
+   "options": "Moodboard Version"
+  },
+  {
+   "description": "Display thumbnail (/files/... path).",
+   "fieldname": "thumbnail",
+   "fieldtype": "Attach",
+   "label": "Thumbnail"
+  },
+  {
+   "fieldname": "brief_section",
+   "fieldtype": "Section Break",
+   "label": "Project Brief"
+  },
+  {
+   "fieldname": "user_vision",
+   "fieldtype": "Small Text",
+   "label": "User Vision"
+  },
+  {
+   "fieldname": "brief",
+   "fieldtype": "Long Text",
+   "label": "Brief"
+  },
+  {
+   "fieldname": "inspiration_images",
+   "fieldtype": "Table",
+   "label": "Inspiration Images",
+   "options": "Moodboard Inspiration Image"
+  },
+  {
+   "description": "Source documents supplied with the brief — PDF / PPT / Excel / images, 20 MB each.",
+   "fieldname": "customer_brief",
+   "fieldtype": "Table",
+   "label": "Customer Brief",
+   "options": "Moodboard Customer Brief File"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "settings_section",
+   "fieldtype": "Section Break",
+   "label": "Generation Settings"
+  },
+  {
+   "default": "0",
+   "fieldname": "fabric_auto_suggest",
+   "fieldtype": "Check",
+   "label": "Fabric Auto Suggest"
+  },
+  {
+   "fieldname": "fabric_auto_count",
+   "fieldtype": "Int",
+   "label": "Fabric Auto Count"
+  },
+  {
+   "default": "0",
+   "fieldname": "style_auto_suggest",
+   "fieldtype": "Check",
+   "label": "Style Auto Suggest"
+  },
+  {
+   "fieldname": "style_auto_count",
+   "fieldtype": "Int",
+   "label": "Style Auto Count"
+  },
+  {
+   "fieldname": "variant_count",
+   "fieldtype": "Int",
+   "label": "Variant Count"
+  },
+  {
+   "fieldname": "foundation_section",
+   "fieldtype": "Section Break",
+   "label": "Foundation"
+  },
+  {
+   "description": "Selected genders (e.g. Women, Men, Kids) — brand-scoped free values, no master. JSON array.",
+   "fieldname": "genders",
+   "fieldtype": "JSON",
+   "label": "Genders"
+  },
+  {
+   "description": "Selected style categories (e.g. Dresses, Tops) — brand-scoped free values, no master. JSON array.",
+   "fieldname": "style_categories",
+   "fieldtype": "JSON",
+   "label": "Style Categories"
+  },
+  {
+   "description": "Free mood tags. JSON array.",
+   "fieldname": "mood_tags",
+   "fieldtype": "JSON",
+   "label": "Mood Tags"
+  },
+  {
+   "description": "Palette colours (name / hex / pantone). No master exists, so kept inline as JSON.",
+   "fieldname": "colours",
+   "fieldtype": "JSON",
+   "label": "Colours"
+  },
+  {
+   "fieldname": "fabrics",
+   "fieldtype": "Table",
+   "label": "Fabrics",
+   "options": "Moodboard Fabric"
+  },
+  {
+   "fieldname": "garments",
+   "fieldtype": "Table",
+   "label": "Garments",
+   "options": "Moodboard Garment"
+  },
+  {
+   "description": "Surplus stock recommendations (prism.api.surplus_recommender.recommend). Replaced wholesale on every sync_surplus_fabrics — a disposable snapshot of what the recommender returned, with the user's picks flagged.",
+   "fieldname": "surplus_fabrics",
+   "fieldtype": "Table",
+   "label": "Surplus Fabrics",
+   "options": "Moodboard Surplus Fabric"
+  },
+  {
+   "description": "User-generated recoloured swatches, joined to the above by fab_code. Deliberately a SIBLING table, not part of the recommendation row: re-running the recommender replaces surplus_fabrics wholesale, and these assets must survive that.",
+   "fieldname": "surplus_recolours",
+   "fieldtype": "Table",
+   "label": "Surplus Recolours",
+   "options": "Moodboard Surplus Recolour"
+  },
+  {
+   "collapsible": 1,
+   "description": "Internal working material — deliberately stripped from published_snapshot, so none of it reaches brand users (see moodboard_v2._SNAPSHOT_INTERNAL_KEYS).",
+   "fieldname": "direction_section",
+   "fieldtype": "Section Break",
+   "label": "Direction & Inspiration"
+  },
+  {
+   "description": "Free keywords describing the board. JSON array of strings.",
+   "fieldname": "keywords",
+   "fieldtype": "JSON",
+   "label": "Keywords"
+  },
+  {
+   "description": "Key insights as key/value pairs. JSON object.",
+   "fieldname": "key_insights",
+   "fieldtype": "JSON",
+   "label": "Key Insights"
+  },
+  {
+   "description": "Fabric direction. Free-form JSON until the schema settles (same holding pattern as addons).",
+   "fieldname": "fabric_direction",
+   "fieldtype": "JSON",
+   "label": "Fabric Direction"
+  },
+  {
+   "description": "Matched garments from prism.api.garment_matching.match_garments, stored verbatim (id, brand, productName, category, ..., matchRationale) — richer and more variable in shape than a fixed child-table row would allow.",
+   "fieldname": "garment_inspiration",
+   "fieldtype": "JSON",
+   "label": "Garment Inspiration"
+  },
+  {
+   "description": "Derived signals for the garment direction (free-form JSON, shape not fixed yet).",
+   "fieldname": "garment_direction_signals",
+   "fieldtype": "JSON",
+   "label": "Garment Direction Signals"
+  },
+  {
+   "fieldname": "print_direction",
+   "fieldtype": "Table",
+   "label": "Print Direction",
+   "options": "Moodboard Print Direction"
+  },
+  {
+   "description": "Derived signals for the print direction (free-form JSON, shape not fixed yet).",
+   "fieldname": "print_direction_signals",
+   "fieldtype": "JSON",
+   "label": "Print Direction Signals"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "alignment_section",
+   "fieldtype": "Section Break",
+   "label": "Alignment"
+  },
+  {
+   "description": "Full WGSN alignment report snapshot (score, summary, matched/missed trends, palette, generated_at).",
+   "fieldname": "alignment_report",
+   "fieldtype": "JSON",
+   "label": "Alignment Report"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "addons_section",
+   "fieldtype": "Section Break",
+   "label": "Add-ons"
+  },
+  {
+   "description": "Prints / embroideries / aops + techniques. Parked as JSON until the schema is finalised.",
+   "fieldname": "addons",
+   "fieldtype": "JSON",
+   "label": "Addons"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "publish_section",
+   "fieldtype": "Section Break",
+   "label": "Publish"
+  },
+  {
+   "description": "Frozen snapshot of the normalized board captured at publish. Brand-facing reads return this.",
+   "fieldname": "published_snapshot",
+   "fieldtype": "JSON",
+   "label": "Published Snapshot"
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "eval:false",
+   "description": "Legacy monolithic blobs — retained transitionally; will be dropped once all consumers move to the normalized fields.",
+   "fieldname": "legacy_section",
+   "fieldtype": "Section Break",
+   "label": "Legacy (transitional)"
+  },
+  {
+   "fieldname": "draft_layout_json",
+   "fieldtype": "JSON",
+   "label": "Draft Layout Json",
+   "max_height": "200px"
+  },
+  {
+   "fieldname": "published_layout_json",
+   "fieldtype": "JSON",
+   "label": "Published Layout Json",
+   "max_height": "200px"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-11 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Moodboard",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Moodboard Admin",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "moodboard_title"
+}

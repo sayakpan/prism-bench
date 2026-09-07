@@ -1,0 +1,180 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "hash",
+ "creation": "2026-06-16 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "moodboard",
+  "version_key",
+  "parent_version",
+  "is_showable",
+  "column_break_head",
+  "image_model",
+  "image_size",
+  "response_id",
+  "response_created_at",
+  "generation_time",
+  "prompt_section",
+  "prompt",
+  "llm_prompt",
+  "ai_reply",
+  "image_section",
+  "image",
+  "edited_image",
+  "edited_at",
+  "canvas_state",
+  "reference_images_section",
+  "reference_images"
+ ],
+ "fields": [
+  {
+   "fieldname": "moodboard",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Moodboard",
+   "options": "Moodboard",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "description": "Original client version id (e.g. v_...). Kept for migration / cross-reference.",
+   "fieldname": "version_key",
+   "fieldtype": "Data",
+   "label": "Version Key",
+   "search_index": 1
+  },
+  {
+   "fieldname": "parent_version",
+   "fieldtype": "Link",
+   "label": "Parent Version",
+   "options": "Moodboard Version"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_showable",
+   "fieldtype": "Check",
+   "label": "Is Showable"
+  },
+  {
+   "fieldname": "column_break_head",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "image_model",
+   "fieldtype": "Data",
+   "label": "Image Model"
+  },
+  {
+   "fieldname": "image_size",
+   "fieldtype": "Data",
+   "label": "Image Size"
+  },
+  {
+   "fieldname": "response_id",
+   "fieldtype": "Data",
+   "label": "Response Id"
+  },
+  {
+   "fieldname": "response_created_at",
+   "fieldtype": "Datetime",
+   "label": "Response Created At"
+  },
+  {
+   "description": "Time the frontend recorded to generate this version, in seconds.",
+   "fieldname": "generation_time",
+   "fieldtype": "Float",
+   "label": "Generation Time (s)"
+  },
+  {
+   "fieldname": "prompt_section",
+   "fieldtype": "Section Break",
+   "label": "Prompt"
+  },
+  {
+   "fieldname": "prompt",
+   "fieldtype": "Long Text",
+   "label": "Prompt"
+  },
+  {
+   "description": "The full prompt sent to the LLM to generate this version.",
+   "fieldname": "llm_prompt",
+   "fieldtype": "Long Text",
+   "label": "LLM Prompt"
+  },
+  {
+   "fieldname": "ai_reply",
+   "fieldtype": "Long Text",
+   "label": "AI Reply"
+  },
+  {
+   "fieldname": "image_section",
+   "fieldtype": "Section Break",
+   "label": "Image"
+  },
+  {
+   "description": "Generated image (/files/... path, IMAGE_image convention).",
+   "fieldname": "image",
+   "fieldtype": "Attach",
+   "label": "Image"
+  },
+  {
+   "description": "Canvas-editor rendered output on top of the AI base, if edited.",
+   "fieldname": "edited_image",
+   "fieldtype": "Attach",
+   "label": "Edited Image"
+  },
+  {
+   "fieldname": "edited_at",
+   "fieldtype": "Datetime",
+   "label": "Edited At"
+  },
+  {
+   "description": "Canvas overlay/editor state for this version (dynamic).",
+   "fieldname": "canvas_state",
+   "fieldtype": "JSON",
+   "label": "Canvas State"
+  },
+  {
+   "fieldname": "reference_images_section",
+   "fieldtype": "Section Break",
+   "label": "Reference Images"
+  },
+  {
+   "description": "Gallery of reference/uploaded images for this version. Upload one or more; each is offloaded to S3 on save. Served as `referenceImages`.",
+   "fieldname": "reference_images",
+   "fieldtype": "Table",
+   "label": "Reference Images",
+   "options": "Moodboard Version Image"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-16 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Moodboard Version",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "states": []
+}

@@ -1,0 +1,477 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2026-05-19 11:35:20.842531",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "record_no",
+  "gsr_no",
+  "developer",
+  "token_number",
+  "order_type",
+  "gender",
+  "product_group",
+  "product_category",
+  "ai_description",
+  "customer",
+  "fabric_so_item",
+  "fabric_required_for",
+  "buyer_style_no",
+  "buyer_style_desc",
+  "pps_rfi_bulk",
+  "lot_no_ref_no",
+  "sample_type",
+  "size_of_sample",
+  "no_of_sample_reqd",
+  "total_pieces",
+  "bulk_so_item",
+  "buyer_style_description__pack_name",
+  "total_no_of_pices",
+  "apprx_gmt_weight",
+  "garment_print_type_dischargepigment",
+  "labdip_no",
+  "before_wash_gsm",
+  "mkt_fabric_req",
+  "fabric_reqd_in_kgs",
+  "primary_light_source",
+  "secondary_light_source",
+  "constrast_fastness_requirement",
+  "fabric_chemical_finish_type",
+  "mechanical_finish_type",
+  "aop_design",
+  "external_fpt_yes_no",
+  "tech_pack_attachment",
+  "labdip_attachment",
+  "trims_source",
+  "remarks",
+  "unique_number",
+  "fabric_source",
+  "sample_colour",
+  "garment_print_type",
+  "aop",
+  "embroidery",
+  "garment_wash",
+  "quality_old_new",
+  "sample_delivery_date",
+  "release_date",
+  "final_rfi",
+  "enquiry_date",
+  "combo_number",
+  "garment_element",
+  "element_colour",
+  "fabric_type",
+  "fabric_quality",
+  "finished_gsm",
+  "fabric_blend",
+  "image_urls",
+  "image_urls_clean",
+  "image_urls_3d",
+  "clean_blend",
+  "clean_construction",
+  "fiber_types",
+  "sam",
+  "consumption",
+  "marker_efficiency",
+  "fabric_master",
+  "trim_costing"
+ ],
+ "fields": [
+  {
+   "fieldname": "record_no",
+   "fieldtype": "Data",
+   "label": "Record #"
+  },
+  {
+   "fieldname": "developer",
+   "fieldtype": "Data",
+   "label": "Developer"
+  },
+  {
+   "fieldname": "token_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Token Number"
+  },
+  {
+   "fieldname": "order_type",
+   "fieldtype": "Data",
+   "label": "Order Type"
+  },
+  {
+   "fieldname": "gsr_no",
+   "fieldtype": "Data",
+   "label": "GSR NO"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Garment Gender"
+  },
+  {
+   "fieldname": "product_group",
+   "fieldtype": "Link",
+   "label": "Product Group",
+   "options": "Garment Group"
+  },
+  {
+   "fieldname": "product_category",
+   "fieldtype": "Link",
+   "label": "Product Category",
+   "options": "Garment Category"
+  },
+  {
+   "fieldname": "ai_description",
+   "fieldtype": "Data",
+   "label": "AI Description"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Data",
+   "label": "Customer"
+  },
+  {
+   "fieldname": "fabric_so_item",
+   "fieldtype": "Data",
+   "label": "Fabric SO Item"
+  },
+  {
+   "fieldname": "fabric_required_for",
+   "fieldtype": "Data",
+   "label": "Fabric Required For"
+  },
+  {
+   "fieldname": "buyer_style_no",
+   "fieldtype": "Data",
+   "label": "Buyer Style No"
+  },
+  {
+   "fieldname": "buyer_style_desc",
+   "fieldtype": "Data",
+   "label": "Buyer Style Description"
+  },
+  {
+   "fieldname": "pps_rfi_bulk",
+   "fieldtype": "Data",
+   "label": "PPS - RFI (BULK)"
+  },
+  {
+   "fieldname": "lot_no_ref_no",
+   "fieldtype": "Data",
+   "label": "Lot No/Ref No",
+   "length": 200
+  },
+  {
+   "fieldname": "sample_type",
+   "fieldtype": "Data",
+   "label": "Sample Type"
+  },
+  {
+   "fieldname": "size_of_sample",
+   "fieldtype": "Data",
+   "label": "Size of Sample"
+  },
+  {
+   "fieldname": "no_of_sample_reqd",
+   "fieldtype": "Data",
+   "label": "No of Sample Reqd"
+  },
+  {
+   "fieldname": "total_pieces",
+   "fieldtype": "Data",
+   "label": "Total No of Pieces"
+  },
+  {
+   "fieldname": "bulk_so_item",
+   "fieldtype": "Data",
+   "label": "Bulk SO Item"
+  },
+  {
+   "fieldname": "buyer_style_description__pack_name",
+   "fieldtype": "Data",
+   "label": "Buyer Style Description / Pack name"
+  },
+  {
+   "fieldname": "total_no_of_pices",
+   "fieldtype": "Data",
+   "label": "Total No. of Pices"
+  },
+  {
+   "fieldname": "apprx_gmt_weight",
+   "fieldtype": "Data",
+   "label": "Apprx. GMT. Weight"
+  },
+  {
+   "fieldname": "garment_print_type_dischargepigment",
+   "fieldtype": "Data",
+   "label": " Garment Print Type Discharge / Pigment"
+  },
+  {
+   "fieldname": "labdip_no",
+   "fieldtype": "Data",
+   "label": "Labdip No"
+  },
+  {
+   "fieldname": "before_wash_gsm",
+   "fieldtype": "Data",
+   "label": "Before Wash GSM"
+  },
+  {
+   "fieldname": "mkt_fabric_req",
+   "fieldtype": "Data",
+   "label": "MKT. FABRIC REQ"
+  },
+  {
+   "fieldname": "fabric_reqd_in_kgs",
+   "fieldtype": "Data",
+   "label": "Fabric Reqd in KGS"
+  },
+  {
+   "fieldname": "primary_light_source",
+   "fieldtype": "Data",
+   "label": "Primary Light Source"
+  },
+  {
+   "fieldname": "secondary_light_source",
+   "fieldtype": "Data",
+   "label": "Secondary Light Source"
+  },
+  {
+   "fieldname": "constrast_fastness_requirement",
+   "fieldtype": "Data",
+   "label": "Constrast Fastness Requirement"
+  },
+  {
+   "fieldname": "fabric_chemical_finish_type",
+   "fieldtype": "Data",
+   "label": " Fabric Chemical Finish Type"
+  },
+  {
+   "fieldname": "mechanical_finish_type",
+   "fieldtype": "Data",
+   "label": "Mechanical Finish Type"
+  },
+  {
+   "fieldname": "aop_design",
+   "fieldtype": "Data",
+   "label": "AOP DESIGN"
+  },
+  {
+   "fieldname": "external_fpt_yes_no",
+   "fieldtype": "Data",
+   "label": "External FPT(Yes/No)"
+  },
+  {
+   "fieldname": "tech_pack_attachment",
+   "fieldtype": "Data",
+   "label": "Tech Pack Attachment",
+   "length": 300
+  },
+  {
+   "fieldname": "labdip_attachment",
+   "fieldtype": "Data",
+   "label": "Labdip Attachment"
+  },
+  {
+   "fieldname": "trims_source",
+   "fieldtype": "Data",
+   "label": "Trims Source"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks",
+   "length": 300
+  },
+  {
+   "fieldname": "unique_number",
+   "fieldtype": "Data",
+   "label": " Unique Number"
+  },
+  {
+   "fieldname": "fabric_source",
+   "fieldtype": "Data",
+   "label": "fabric_source"
+  },
+  {
+   "fieldname": "sample_colour",
+   "fieldtype": "Data",
+   "label": "Sample Colour Name"
+  },
+  {
+   "fieldname": "garment_print_type",
+   "fieldtype": "Data",
+   "label": "Garment Print Type"
+  },
+  {
+   "fieldname": "aop",
+   "fieldtype": "Data",
+   "label": "AOP (Yes/No)"
+  },
+  {
+   "fieldname": "embroidery",
+   "fieldtype": "Data",
+   "label": "Embroidery (Yes/No)"
+  },
+  {
+   "fieldname": "garment_wash",
+   "fieldtype": "Data",
+   "label": "Garment Wash"
+  },
+  {
+   "fieldname": "quality_old_new",
+   "fieldtype": "Data",
+   "label": "QUALITY OLD/NEW"
+  },
+  {
+   "fieldname": "sample_delivery_date",
+   "fieldtype": "Data",
+   "label": "Sample Delivery Date"
+  },
+  {
+   "fieldname": "release_date",
+   "fieldtype": "Data",
+   "label": "Release Date"
+  },
+  {
+   "fieldname": "final_rfi",
+   "fieldtype": "Data",
+   "label": "Final RFI"
+  },
+  {
+   "fieldname": "enquiry_date",
+   "fieldtype": "Data",
+   "label": "Enquiry Date"
+  },
+  {
+   "fieldname": "combo_number",
+   "fieldtype": "Data",
+   "label": "Combo Number"
+  },
+  {
+   "fieldname": "garment_element",
+   "fieldtype": "Data",
+   "label": "Garment Element"
+  },
+  {
+   "fieldname": "element_colour",
+   "fieldtype": "Data",
+   "label": "Element Colour"
+  },
+  {
+   "fieldname": "fabric_type",
+   "fieldtype": "Data",
+   "label": "Fabric Type"
+  },
+  {
+   "fieldname": "fabric_quality",
+   "fieldtype": "Data",
+   "label": "Fabric Quality"
+  },
+  {
+   "fieldname": "finished_gsm",
+   "fieldtype": "Data",
+   "label": "Finished GSM"
+  },
+  {
+   "fieldname": "fabric_blend",
+   "fieldtype": "Data",
+   "label": "Fabric Blend"
+  },
+  {
+   "fieldname": "image_urls",
+   "fieldtype": "JSON",
+   "label": "Image URLs",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "image_urls_3d",
+   "fieldtype": "JSON",
+   "label": "Image URLs 3D",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "clean_blend",
+   "fieldtype": "Data",
+   "label": "Clean Blend"
+  },
+  {
+   "fieldname": "clean_construction",
+   "fieldtype": "Data",
+   "label": "Clean Construction"
+  },
+  {
+   "description": "Fiber types associated with this fabric. Group rows by Category to render the per-category chip tabs (Cotton, Lyocell, ...).",
+   "fieldname": "fiber_types",
+   "fieldtype": "Table",
+   "label": "Fiber Types",
+   "options": "Dyed Fabric Fiber"
+  },
+  {
+   "fieldname": "image_urls_clean",
+   "fieldtype": "JSON",
+   "label": "Image URLs Clean",
+   "max_height": "100px"
+  },
+  {
+   "description": "Standard Allowed Minutes",
+   "fieldname": "sam",
+   "fieldtype": "Float",
+   "label": "SAM (mins)"
+  },
+  {
+   "fieldname": "consumption",
+   "fieldtype": "Float",
+   "label": "Consumption"
+  },
+  {
+   "fieldname": "marker_efficiency",
+   "fieldtype": "Percent",
+   "label": "Marker Efficiency"
+  },
+  {
+   "fieldname": "fabric_master",
+   "fieldtype": "Link",
+   "label": "Fabric Master",
+   "options": "Fabric Master"
+  },
+  {
+   "fieldname": "trim_costing",
+   "fieldtype": "Link",
+   "label": "Trim Costing",
+   "options": "Trim Costing"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-07-10 15:14:05.767076",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Sample Request",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "token_number"
+}

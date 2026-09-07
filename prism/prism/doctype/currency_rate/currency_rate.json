@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:currency_code",
+ "creation": "2026-08-13 10:15:00.000000",
+ "description": "Currency -> USD conversion rates, used to normalise scraped retail prices onto one comparable scale. Distinct from Costing Currency, whose conversion_factor is INR-based and precision-2.",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "currency_code",
+  "currency_name",
+  "currency_symbol",
+  "rate_to_usd",
+  "rate_as_of"
+ ],
+ "fields": [
+  {
+   "description": "ISO 4217 code, e.g. INR. Stored uppercase.",
+   "fieldname": "currency_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Currency Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "currency_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Currency Name"
+  },
+  {
+   "description": "Symbol as it appears in scraped price text, e.g. ₹. Used to detect which currency a raw price string is in.",
+   "fieldname": "currency_symbol",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Currency Symbol"
+  },
+  {
+   "description": "USD per 1 unit of this currency. USD itself is 1. Multiply an amount in this currency by this to get USD.",
+   "fieldname": "rate_to_usd",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Rate to USD",
+   "precision": "9",
+   "reqd": 1
+  },
+  {
+   "description": "When this rate was last sourced. Shown alongside any figure derived from it so a stale rate is visible rather than silent.",
+   "fieldname": "rate_as_of",
+   "fieldtype": "Date",
+   "label": "Rate As Of"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-13 10:15:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Currency Rate",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "currency_code",
+ "sort_order": "ASC",
+ "states": [],
+ "title_field": "currency_code"
+}

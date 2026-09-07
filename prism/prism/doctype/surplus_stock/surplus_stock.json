@@ -1,0 +1,376 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2026-08-10 18:42:27.071333",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "primary_section",
+  "material",
+  "material_type_desc",
+  "material_desc",
+  "batch",
+  "plant",
+  "column_break_ildy",
+  "total_qty",
+  "total_value_rs_lakh",
+  "base_uom",
+  "stock_segment",
+  "storage_location",
+  "customer_name",
+  "section_break_gyme",
+  "quality",
+  "quality_full_name",
+  "blend",
+  "blend_full_name",
+  "gsm",
+  "shade_catagory",
+  "color",
+  "column_break_iles",
+  "yarn_deatails",
+  "fab_code",
+  "fabric_type",
+  "width",
+  "dia",
+  "gauge",
+  "section_break_ospl",
+  "ageing",
+  "so",
+  "hoi_item",
+  "column_break_jkkr",
+  "testing_report",
+  "s_l",
+  "has_image_file",
+  "key",
+  "image_urls",
+  "gsheet_id",
+  "fabric_master_match_section",
+  "closest_fabric_master",
+  "closest_fabric_code",
+  "closest_fabric_desc",
+  "closest_match_score",
+  "column_break_fmmatch",
+  "closest_match_method",
+  "closest_matched_on",
+  "closest_match_reason",
+  "closest_match_alternates",
+  "closest_match_signature",
+  "closest_fabric_cost_per_kg",
+  "closest_fabric_costed_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "material_type_desc",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Material type desc.",
+   "reqd": 1
+  },
+  {
+   "fieldname": "plant",
+   "fieldtype": "Data",
+   "label": "PLANT"
+  },
+  {
+   "fieldname": "storage_location",
+   "fieldtype": "Data",
+   "label": "Storage Location"
+  },
+  {
+   "fieldname": "ageing",
+   "fieldtype": "Data",
+   "label": "AGEING"
+  },
+  {
+   "fieldname": "so",
+   "fieldtype": "Data",
+   "label": "so"
+  },
+  {
+   "fieldname": "hoi_item",
+   "fieldtype": "Data",
+   "label": "HOI Item"
+  },
+  {
+   "fieldname": "material",
+   "fieldtype": "Data",
+   "label": "Material",
+   "reqd": 1
+  },
+  {
+   "fieldname": "shade_catagory",
+   "fieldtype": "Data",
+   "label": "  SHADE CATAGORY"
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total Qty.",
+   "precision": "2"
+  },
+  {
+   "fieldname": "stock_segment",
+   "fieldtype": "Data",
+   "label": "Stock Segment"
+  },
+  {
+   "fieldname": "batch",
+   "fieldtype": "Data",
+   "label": "Batch"
+  },
+  {
+   "fieldname": "fabric_type",
+   "fieldtype": "Data",
+   "label": "Fabric Type"
+  },
+  {
+   "fieldname": "quality",
+   "fieldtype": "Data",
+   "label": "Quality"
+  },
+  {
+   "fieldname": "blend",
+   "fieldtype": "Data",
+   "label": "BLEND"
+  },
+  {
+   "fieldname": "dia",
+   "fieldtype": "Int",
+   "label": "Dia"
+  },
+  {
+   "fieldname": "gauge",
+   "fieldtype": "Int",
+   "label": "Gauge"
+  },
+  {
+   "fieldname": "s_l",
+   "fieldtype": "Float",
+   "label": "S_L",
+   "precision": "2"
+  },
+  {
+   "fieldname": "fab_code",
+   "fieldtype": "Data",
+   "label": "Fab Code"
+  },
+  {
+   "fieldname": "yarn_deatails",
+   "fieldtype": "Data",
+   "label": "Yarn Deatails"
+  },
+  {
+   "fieldname": "testing_report",
+   "fieldtype": "Data",
+   "label": "Testing Report"
+  },
+  {
+   "fieldname": "gsm",
+   "fieldtype": "Int",
+   "label": "GSM"
+  },
+  {
+   "fieldname": "width",
+   "fieldtype": "Int",
+   "label": "Width"
+  },
+  {
+   "fieldname": "material_desc",
+   "fieldtype": "Data",
+   "label": "  Material Description"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "CustomerName."
+  },
+  {
+   "fieldname": "base_uom",
+   "fieldtype": "Data",
+   "label": "Base Unit of Measure"
+  },
+  {
+   "fieldname": "column_break_ildy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_gyme",
+   "fieldtype": "Section Break",
+   "label": "Specifications"
+  },
+  {
+   "fieldname": "column_break_iles",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ospl",
+   "fieldtype": "Section Break",
+   "label": "Misc."
+  },
+  {
+   "fieldname": "column_break_jkkr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "primary_section",
+   "fieldtype": "Section Break",
+   "label": "Primary"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_image_file",
+   "fieldtype": "Check",
+   "label": "Has Image File"
+  },
+  {
+    "fieldname": "image_urls",
+   "fieldtype": "JSON",
+   "label": "Image URLs",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "key",
+   "fieldtype": "Data",
+   "label": "Key"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color"
+  },
+  {
+   "fieldname": "total_value_rs_lakh",
+   "fieldtype": "Currency",
+   "label": "Total Value Rs Lakh",
+   "precision": "2"
+  },
+  {
+   "fieldname": "quality_full_name",
+   "fieldtype": "Data",
+   "label": "Quality full Name"
+  },
+  {
+   "fieldname": "blend_full_name",
+   "fieldtype": "Data",
+   "label": "Blend full Name"
+  },
+  {
+   "fieldname": "fabric_master_match_section",
+   "fieldtype": "Section Break",
+   "label": "Fabric Master Match"
+  },
+  {
+   "description": "The Fabric Master this stock most closely corresponds to. Set by \"Find Closest Fabric Master\"; editing it by hand marks the match Manual, and a re-run will then leave it alone.",
+   "fieldname": "closest_fabric_master",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Closest Fabric Master",
+   "options": "Fabric Master"
+  },
+  {
+   "fetch_from": "closest_fabric_master.dyed_fabric_material",
+   "fetch_if_empty": 0,
+   "fieldname": "closest_fabric_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Closest Fabric Code",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "closest_fabric_master.dyed_fabric_material_desc",
+   "fetch_if_empty": 0,
+   "fieldname": "closest_fabric_desc",
+   "fieldtype": "Data",
+   "label": "Closest Fabric Description",
+   "read_only": 1
+  },
+  {
+   "description": "0-100 fit, from construction (40), composition (40) and GSM (20).",
+   "fieldname": "closest_match_score",
+   "fieldtype": "Float",
+   "label": "Match Score",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_fmmatch",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "closest_match_method",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Match Method",
+   "options": "\nDeterministic\nLLM Assisted\nManual",
+   "read_only": 1
+  },
+  {
+   "fieldname": "closest_matched_on",
+   "fieldtype": "Datetime",
+   "label": "Matched On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "closest_match_reason",
+   "fieldtype": "Small Text",
+   "label": "Match Reason",
+   "read_only": 1
+  },
+  {
+   "description": "Runners-up with their scores, best first.",
+   "fieldname": "closest_match_alternates",
+   "fieldtype": "JSON",
+   "label": "Match Alternates",
+   "read_only": 1
+  },
+  {
+   "description": "Digest of the quality/blend/GSM the match was computed from. A re-run recomputes rows whose signature no longer agrees.",
+   "fieldname": "closest_match_signature",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Match Signature",
+   "read_only": 1
+  },
+  {
+   "description": "All-in per-kg cost of the matched Fabric Master, loss % included — the same figure get_garment_cost rolls into a garment. Precomputed, because costing a fabric makes LLM calls the first time; refresh with \"Refresh Fabric Master Cost\".",
+   "fieldname": "closest_fabric_cost_per_kg",
+   "fieldtype": "Currency",
+   "label": "Fabric Master Cost / kg",
+   "read_only": 1
+  },
+  {
+   "fieldname": "closest_fabric_costed_on",
+   "fieldtype": "Datetime",
+   "label": "Costed On",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-13 19:40:44.567412",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Surplus Stock",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "hash",
+ "creation": "2026-07-16 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "page_builder",
+  "brand_id",
+  "target",
+  "action",
+  "column_break_head",
+  "actor",
+  "change_count",
+  "parent_version",
+  "summary_section",
+  "summary",
+  "changes",
+  "snapshot_section",
+  "layout_json"
+ ],
+ "fields": [
+  {
+   "fieldname": "page_builder",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Page Builder",
+   "options": "Page Builder",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "page_builder.brand_id",
+   "fieldname": "brand_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Brand ID",
+   "options": "Brand",
+   "search_index": 1
+  },
+  {
+   "default": "Draft",
+   "description": "Which layout this version snapshots.",
+   "fieldname": "target",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Target",
+   "options": "Draft\nPublished"
+  },
+  {
+   "fieldname": "action",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Action",
+   "options": "Draft Created\nDraft Updated\nPublished\nUnpublished\nRestored"
+  },
+  {
+   "fieldname": "column_break_head",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Email of the user who performed the change.",
+   "fieldname": "actor",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Actor"
+  },
+  {
+   "description": "Number of blocks affected (added + removed + moved + edited).",
+   "fieldname": "change_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Change Count"
+  },
+  {
+   "fieldname": "parent_version",
+   "fieldtype": "Link",
+   "label": "Previous Version",
+   "options": "Page Builder Version"
+  },
+  {
+   "fieldname": "summary_section",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "description": "Human summary, e.g. \"2 edited, 1 added\".",
+   "fieldname": "summary",
+   "fieldtype": "Small Text",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "changes",
+   "fieldtype": "Table",
+   "label": "Changes",
+   "options": "Page Builder Change"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "snapshot_section",
+   "fieldtype": "Section Break",
+   "label": "Snapshot"
+  },
+  {
+   "description": "Full layout JSON captured at this version. Used for restore and any-to-any diff.",
+   "fieldname": "layout_json",
+   "fieldtype": "JSON",
+   "label": "Layout Json"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-07-16 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Page Builder Version",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

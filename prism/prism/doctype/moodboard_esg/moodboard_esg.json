@@ -1,0 +1,222 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-07-06 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "source_doctype",
+  "source_name",
+  "moodboard_style",
+  "moodboard",
+  "order_context_section",
+  "customer",
+  "ship_country",
+  "production_city",
+  "context_col_break",
+  "customer_profile",
+  "suggestion_criteria",
+  "trims_section",
+  "number_of_trims",
+  "elastic",
+  "trim_style",
+  "result_snapshot_section",
+  "overall_rating",
+  "score_percent",
+  "category",
+  "result_col_break",
+  "estimated_cost",
+  "zero_tolerance_status",
+  "data_section",
+  "elements"
+ ],
+ "fields": [
+  {
+   "description": "The record this ESG belongs to (e.g. Moodboard Style or Sample Request). One ESG per source is enforced in code.",
+   "fieldname": "source_doctype",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Source Doctype",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source_name",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Source",
+   "options": "source_doctype",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "description": "Set only when the source is a Moodboard Style (kept for the moodboard flow). Blank for other sources such as Sample Request.",
+   "fieldname": "moodboard_style",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Moodboard Style",
+   "options": "Moodboard Style",
+   "search_index": 1
+  },
+  {
+   "description": "Auto-filled from the linked style; convenience for filtering.",
+   "fetch_from": "moodboard_style.moodboard",
+   "fieldname": "moodboard",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Moodboard",
+   "options": "Moodboard",
+   "read_only": 1
+  },
+  {
+   "fieldname": "order_context_section",
+   "fieldtype": "Section Break",
+   "label": "Order Context"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Brand"
+  },
+  {
+   "fieldname": "ship_country",
+   "fieldtype": "Link",
+   "label": "Ship Country",
+   "options": "Country"
+  },
+  {
+   "default": "Indore",
+   "fieldname": "production_city",
+   "fieldtype": "Data",
+   "label": "Production City"
+  },
+  {
+   "fieldname": "context_col_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Generic",
+   "fieldname": "customer_profile",
+   "fieldtype": "Select",
+   "label": "Customer Profile",
+   "options": "Generic\nH&M\nInditex\nPVH\nBestseller\nC&A\nTarget"
+  },
+  {
+   "default": "ESG Sensitive",
+   "fieldname": "suggestion_criteria",
+   "fieldtype": "Select",
+   "label": "Suggestion Criteria",
+   "options": "ESG Sensitive\nCost Sensitive\nBoth"
+  },
+  {
+   "description": "Summary only — the full trim list is sourced elsewhere.",
+   "fieldname": "trims_section",
+   "fieldtype": "Section Break",
+   "label": "Trims"
+  },
+  {
+   "fieldname": "number_of_trims",
+   "fieldtype": "Int",
+   "label": "Number Of Trims"
+  },
+  {
+   "default": "No",
+   "fieldname": "elastic",
+   "fieldtype": "Select",
+   "label": "Elastic",
+   "options": "No\nElastic - Covered\nElastic - Exposed"
+  },
+  {
+   "description": "= Costing garment type, e.g. \"Dress\".",
+   "fieldname": "trim_style",
+   "fieldtype": "Data",
+   "label": "Trim Style"
+  },
+  {
+   "description": "Computed by the ESG engine; stored as a snapshot (optional).",
+   "fieldname": "result_snapshot_section",
+   "fieldtype": "Section Break",
+   "label": "Result Snapshot"
+  },
+  {
+   "description": "1–5.",
+   "fieldname": "overall_rating",
+   "fieldtype": "Float",
+   "label": "Overall Rating",
+   "precision": "2"
+  },
+  {
+   "description": "0–100.",
+   "fieldname": "score_percent",
+   "fieldtype": "Int",
+   "label": "Score %"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Category",
+   "options": "\nNeeds Improvement\nBronze\nSilver\nGold\nPlatinum"
+  },
+  {
+   "fieldname": "result_col_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "estimated_cost",
+   "fieldtype": "Currency",
+   "label": "Estimated Cost"
+  },
+  {
+   "fieldname": "zero_tolerance_status",
+   "fieldtype": "Select",
+   "label": "Zero-Tolerance Status",
+   "options": "\nApproved\nNot Approved"
+  },
+  {
+   "fieldname": "data_section",
+   "fieldtype": "Section Break",
+   "label": "Data"
+  },
+  {
+   "fieldname": "elements",
+   "fieldtype": "Table",
+   "label": "Garment Elements",
+   "options": "Moodboard ESG Element"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-07-06 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Moodboard ESG",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "source_name"
+}

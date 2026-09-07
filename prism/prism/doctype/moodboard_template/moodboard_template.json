@@ -1,0 +1,84 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-04-09 15:46:29.598558",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "template_title",
+  "published_layout_json",
+  "draft_layout_json",
+  "status",
+  "last_published_at",
+  "is_active"
+ ],
+ "fields": [
+  {
+   "fieldname": "template_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Template Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "published_layout_json",
+   "fieldtype": "JSON",
+   "label": "Published Layout Json"
+  },
+  {
+   "fieldname": "draft_layout_json",
+   "fieldtype": "JSON",
+   "label": "Draft Layout Json"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nPublished",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_published_at",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Last Published At"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-09 19:54:17.806129",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Moodboard Template",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,405 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-06-15 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "request_type",
+  "status",
+  "column_break_head",
+  "brand",
+  "brand_contact_name",
+  "brand_email",
+  "assigned_psl",
+  "assigned_at",
+  "source_section",
+  "source_kind",
+  "source_id",
+  "source_title",
+  "source_thumbnail",
+  "source_season",
+  "moodboard",
+  "notes",
+  "lines_section",
+  "lines",
+  "quote_section",
+  "quote_status",
+  "quote_price",
+  "quote_currency",
+  "quote_qty",
+  "quote_comment",
+  "incoterms",
+  "payment_terms",
+  "valid_for_days",
+  "quoted_delivery_date",
+  "quote_submitted_at",
+  "metrics_section",
+  "internal_cost",
+  "internal_cost_inr",
+  "internal_cost_currency",
+  "internal_cost_fx",
+  "gross_margin_pct",
+  "over_internal_cost",
+  "vs_brand_target",
+  "vs_market",
+  "markup_on_cost",
+  "accepted_via",
+  "accepted_at",
+  "review_section",
+  "review_decision",
+  "review_comment",
+  "review_at",
+  "counter_section",
+  "counter_price",
+  "counter_currency",
+  "counter_qty",
+  "counter_delivery_date",
+  "counter_note",
+  "counter_at",
+  "negotiation_section",
+  "negotiation_history"
+ ],
+ "fields": [
+  {
+   "fieldname": "request_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Request Type",
+   "options": "Quote\nSample",
+   "reqd": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Pending\nQuoted\nCountered\nApproved\nRejected",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_head",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "brand",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Brand",
+   "options": "Brand",
+   "search_index": 1
+  },
+  {
+   "fieldname": "brand_contact_name",
+   "fieldtype": "Data",
+   "label": "Brand Contact Name"
+  },
+  {
+   "fieldname": "brand_email",
+   "fieldtype": "Data",
+   "label": "Brand Email"
+  },
+  {
+   "description": "PSL member who claimed this request by taking the first action. Once set, only this user (or a System Manager) may act on it.",
+   "fieldname": "assigned_psl",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Assigned PSL",
+   "options": "User",
+   "search_index": 1
+  },
+  {
+   "fieldname": "assigned_at",
+   "fieldtype": "Datetime",
+   "label": "Assigned At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source_section",
+   "fieldtype": "Section Break",
+   "label": "Source"
+  },
+  {
+   "fieldname": "source_kind",
+   "fieldtype": "Select",
+   "label": "Source Kind",
+   "options": "\nmoodboard\nstyle"
+  },
+  {
+   "fieldname": "source_id",
+   "fieldtype": "Data",
+   "label": "Source Id"
+  },
+  {
+   "fieldname": "source_title",
+   "fieldtype": "Data",
+   "label": "Source Title"
+  },
+  {
+   "fieldname": "source_thumbnail",
+   "fieldtype": "Small Text",
+   "label": "Source Thumbnail"
+  },
+  {
+   "fieldname": "source_season",
+   "fieldtype": "Data",
+   "label": "Source Season"
+  },
+  {
+   "description": "Resolved moodboard/board id for the cost/quote engine. Plain id (not a Link) since boards may live outside a single master.",
+   "fieldname": "moodboard",
+   "fieldtype": "Data",
+   "label": "Moodboard"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "lines_section",
+   "fieldtype": "Section Break",
+   "label": "Lines"
+  },
+  {
+   "fieldname": "lines",
+   "fieldtype": "Table",
+   "label": "Lines",
+   "options": "Request Line"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "quote_section",
+   "fieldtype": "Section Break",
+   "label": "Quote"
+  },
+  {
+   "fieldname": "quote_status",
+   "fieldtype": "Select",
+   "label": "Quote Status",
+   "options": "\nDraft\nPublished"
+  },
+  {
+   "fieldname": "quote_price",
+   "fieldtype": "Float",
+   "label": "Quote Price",
+   "precision": "2"
+  },
+  {
+   "fieldname": "quote_currency",
+   "fieldtype": "Data",
+   "label": "Quote Currency"
+  },
+  {
+   "fieldname": "quote_qty",
+   "fieldtype": "Int",
+   "label": "Quote Qty"
+  },
+  {
+   "fieldname": "quote_comment",
+   "fieldtype": "Small Text",
+   "label": "Quote Comment"
+  },
+  {
+   "fieldname": "incoterms",
+   "fieldtype": "Data",
+   "label": "Incoterms"
+  },
+  {
+   "fieldname": "payment_terms",
+   "fieldtype": "Data",
+   "label": "Payment Terms"
+  },
+  {
+   "fieldname": "valid_for_days",
+   "fieldtype": "Int",
+   "label": "Valid For Days"
+  },
+  {
+   "fieldname": "quoted_delivery_date",
+   "fieldtype": "Date",
+   "label": "Quoted Delivery Date"
+  },
+  {
+   "fieldname": "quote_submitted_at",
+   "fieldtype": "Datetime",
+   "label": "Quote Submitted At"
+  },
+  {
+   "collapsible": 1,
+   "description": "Cost analysis snapshot frozen at the moment the quote was sent/saved. Internal only — never shown to brand users.",
+   "fieldname": "metrics_section",
+   "fieldtype": "Section Break",
+   "label": "Frozen Cost Analysis (internal)"
+  },
+  {
+   "description": "Internal cost in the moodboard display currency (as shown on the quote page).",
+   "fieldname": "internal_cost",
+   "fieldtype": "Float",
+   "label": "Internal Cost",
+   "precision": "2"
+  },
+  {
+   "description": "Internal cost in INR (the raw cost_calculation base).",
+   "fieldname": "internal_cost_inr",
+   "fieldtype": "Float",
+   "label": "Internal Cost (INR)",
+   "precision": "2"
+  },
+  {
+   "fieldname": "internal_cost_currency",
+   "fieldtype": "Data",
+   "label": "Internal Cost Currency"
+  },
+  {
+   "description": "FX rate (INR per display-currency unit) used to convert the internal cost.",
+   "fieldname": "internal_cost_fx",
+   "fieldtype": "Float",
+   "label": "Internal Cost FX",
+   "precision": "6"
+  },
+  {
+   "fieldname": "gross_margin_pct",
+   "fieldtype": "Percent",
+   "label": "Gross Margin %"
+  },
+  {
+   "fieldname": "over_internal_cost",
+   "fieldtype": "Float",
+   "label": "Over Internal Cost",
+   "precision": "2"
+  },
+  {
+   "fieldname": "vs_brand_target",
+   "fieldtype": "Float",
+   "label": "Vs Brand Target",
+   "precision": "2"
+  },
+  {
+   "fieldname": "vs_market",
+   "fieldtype": "Float",
+   "label": "Vs Market",
+   "precision": "2"
+  },
+  {
+   "fieldname": "markup_on_cost",
+   "fieldtype": "Float",
+   "label": "Markup on Cost",
+   "precision": "2"
+  },
+  {
+   "fieldname": "accepted_via",
+   "fieldtype": "Select",
+   "label": "Accepted Via",
+   "options": "\nquote\ncounter"
+  },
+  {
+   "fieldname": "accepted_at",
+   "fieldtype": "Datetime",
+   "label": "Accepted At"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "review_section",
+   "fieldtype": "Section Break",
+   "label": "Review"
+  },
+  {
+   "fieldname": "review_decision",
+   "fieldtype": "Select",
+   "label": "Review Decision",
+   "options": "\napproved\nrejected"
+  },
+  {
+   "fieldname": "review_comment",
+   "fieldtype": "Small Text",
+   "label": "Review Comment"
+  },
+  {
+   "fieldname": "review_at",
+   "fieldtype": "Datetime",
+   "label": "Review At"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "counter_section",
+   "fieldtype": "Section Break",
+   "label": "Counter (standing)"
+  },
+  {
+   "fieldname": "counter_price",
+   "fieldtype": "Float",
+   "label": "Counter Price",
+   "precision": "2"
+  },
+  {
+   "fieldname": "counter_currency",
+   "fieldtype": "Data",
+   "label": "Counter Currency"
+  },
+  {
+   "fieldname": "counter_qty",
+   "fieldtype": "Int",
+   "label": "Counter Qty"
+  },
+  {
+   "fieldname": "counter_delivery_date",
+   "fieldtype": "Date",
+   "label": "Counter Delivery Date"
+  },
+  {
+   "fieldname": "counter_note",
+   "fieldtype": "Small Text",
+   "label": "Counter Note"
+  },
+  {
+   "fieldname": "counter_at",
+   "fieldtype": "Datetime",
+   "label": "Counter At"
+  },
+  {
+   "fieldname": "negotiation_section",
+   "fieldtype": "Section Break",
+   "label": "Negotiation History"
+  },
+  {
+   "fieldname": "negotiation_history",
+   "fieldtype": "Table",
+   "label": "Negotiation History",
+   "options": "Request Negotiation Event"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prism",
+ "name": "Request",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
